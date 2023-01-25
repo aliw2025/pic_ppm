@@ -31,6 +31,9 @@ class Controller extends BaseController
     public function ppmDetail(Request $request){
         return view('ppm.ppm-detail');
     }
+    public function gpDetail(Request $request){
+        return view('ppm.gate-pass-details');
+    }
     public function ppmList(Request $request){
         return view('ppm.ppm-list');
     }

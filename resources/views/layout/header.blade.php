@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Periodic Preventive Maintainence</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{url('resources/plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- IonIcons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <!-- }dist/css/adminlte.min.css -->
-  <link rel="stylesheet" type="text/css" href="{{url('/resources/css/adminlte.min.css') }}">
-  <!-- <link rel="stylesheet" href="{{url('resources/css/adminlite.css')}}"> -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Periodic Preventive Maintainence</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{{ url('resources/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <!-- }dist/css/adminlte.min.css -->
+    <link rel="stylesheet" type="text/css" href="{{ url('/resources/css/adminlte.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url('resources/css/adminlite.css') }}"> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </head>
 <!--
 `body` tag options:
@@ -27,25 +31,27 @@
   * sidebar-collapse
   * sidebar-mini
 -->
+
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
- 
- @include('layout.top-nav') 
+    <div class="wrapper">
 
- @include('layout.sidebar')
- <div class="content-wrapper">
-  <!-- Content Wrapper. Contains page content -->
-  @yield('section')
-  <!-- /.content-wrapper -->
-  </div>
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-   
-  </aside>
-  <!-- /.control-sidebar -->
+        @include('layout.top-nav')
 
-  @include('layout.footer')
-</div>
+        @include('layout.sidebar')
+        <div class="content-wrapper">
+            <!-- Content Wrapper. Contains page content -->
+            @yield('section')
+            <!-- /.content-wrapper -->
+        </div>
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+
+        </aside>
+        <!-- /.control-sidebar -->
+
+        @include('layout.footer')
+    </div>
 </body>
+
 </html>

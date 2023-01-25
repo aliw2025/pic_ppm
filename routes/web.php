@@ -23,6 +23,8 @@ Route::get('/add-asset', [\App\Http\Controllers\Controller::class,'addAsset'])->
 Route::get('/add-vendor', [\App\Http\Controllers\Controller::class,'addVendor'])->name('add-vendor');
 Route::get('/vendors', [\App\Http\Controllers\Controller::class,'vendors'])->name('vendors');
 Route::get('/ppm-detail', [\App\Http\Controllers\Controller::class,'ppmDetail'])->name('ppm-detail');
+Route::get('/gp-detail', [\App\Http\Controllers\Controller::class,'gpDetail'])->name('gp-detail');
+
 Route::get('/ppm-list', [\App\Http\Controllers\Controller::class,'ppmList'])->name('ppm-list');
 
 

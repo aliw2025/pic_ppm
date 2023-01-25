@@ -28,6 +28,8 @@
                                     href="#custom-tabs-two-settings" role="tab" aria-controls="custom-tabs-two-settings"
                                     aria-selected="true">Gate Pass</a>
                             </li>
+
+
                         </ul>
                     </div>
                     <div class="card-body">
@@ -228,10 +230,7 @@
                                                         <label class="mt-1 form-label">Next PPM Date</label>
                                                         <input type="date" class="form-control">
                                                     </div>
-                                                    <div class="col-3">
-                                                        <label class="mt-1 form-label">PPM Report</label>
-                                                        <input type="file" class="form-control">
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -246,51 +245,18 @@
                             </div> --}}
                             <div class="tab-pane fade" id="custom-tabs-two-ppm" role="tabpanel"
                                 aria-labelledby="custom-tabs-two-ppm-tab">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4>Create PPM Scheudule</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="row d-flex align-items-center">
-                                                    <div class="col-3">
-                                                        <label class="mt-1 form-label">PPM Type</label>
-                                                        <select name="" id="" class="form-control">
-                                                            <option value="weekly">Weekly</option>
-                                                            <option value="Monthly">Monthly</option>
-                                                            <option selected value="Quarterly">Quarterly</option>
-                                                            <option value="Bi-Annually">Bi-Annually</option>
-                                                            <option value="Annually">Annually</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <label class="mt-1 form-label">Number of Itterations</label>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                    <div class="mt-4 col-3">
-                                                        <button class="btn btn-primary">Finalize Schedule</button>
-                                                    </div>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="row mt-2">
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header">
                                                 <h4>PPM Summary</h4>
+                                                <p>Equipment Type Name</p>
                                             </div>
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-3">
-                                                        <label class="mt-1 form-label">PPM type</label>
-                                                        <input value="quarterly" type="text" class="form-control"
-                                                            disabled>
-                                                    </div>
+
                                                     <div class="col-3">
                                                         <label class="mt-1 form-label">Last PPM Date</label>
                                                         <input type="date" class="form-control">
@@ -308,11 +274,63 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Create PPM Scheudule</h4>
+
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row d-flex align-items-center">
+                                                    <div  class="col-3">
+                                                        <label class="mt-1 form-label">Schedule Type</label>
+                                                        <select id="sch_type" name=""  class="form-control">
+                                                            <option value="timely">Timely</option>
+                                                            <option value="metered">Metered</option>
+                                                        </select>
+                                                    </div>
+
+
+
+                                                    <div id="ppm_type" class="col-3">
+                                                        <label class="mt-1 form-label">PPM Type</label>
+                                                        <select name="" id="" class="form-control">
+                                                            <option value="weekly">Weekly</option>
+                                                            <option value="Monthly">Monthly</option>
+                                                            <option selected value="Quarterly">Quarterly</option>
+                                                            <option value="Bi-Annually">Bi-Annually</option>
+                                                            <option value="Annually">Annually</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div id="num_itt" class="col-3">
+                                                        <label class="mt-1 form-label">Number of Itterations</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+
+                                                    <div id="meter" class="col-3">
+                                                        <label class="mt-1 form-label">Meter Value</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <div id="unit" class="col-3">
+                                                        <label class="mt-1 form-label">Meter Unit</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <div id="fin_sc" class="mt-4 col-3">
+                                                        <button class="btn btn-primary">Finalize Schedule</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row mt-2">
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header">
-                                                <h4>Schedules </h4>
+                                                <h4>Schedule</h4>
                                             </div>
                                             <div class="card-body">
                                                 <table class="table table-head-fixed text-nowrap">
@@ -323,7 +341,7 @@
                                                             <th>Planned PPM date</th>
                                                             <th>Performed date</th>
                                                             <th>Status</th>
-                                                            <th>PPM Report</th>
+                                                            <th>Schedule Report</th>
                                                             <th> detail</th>
 
                                                         </tr>
@@ -334,7 +352,7 @@
                                                             <td>12-Jan-23</td>
                                                             <td>12-Jan-23</td>
                                                             <td>12-Jan-23</td>
-                                                            <td>pending</td>
+                                                            <td>Planned</td>
                                                             <td>
                                                                 <ion-icon name="eye-outline"></ion-icon>
                                                             </td>
@@ -347,7 +365,7 @@
                                                             <td>12-Jan-23</td>
                                                             <td>12-Feb-23</td>
                                                             <td>12-Jan-23</td>
-                                                            <td>performed</td>
+                                                            <td>Completed</td>
                                                             <td>
                                                                 <ion-icon name="eye-outline"></ion-icon>
                                                             </td>
@@ -360,7 +378,7 @@
                                                             <td>12-Jan-23</td>
                                                             <td>12-Mar-23</td>
                                                             <td>12-Jan-23</td>
-                                                            <td>pending</td>
+                                                            <td>Planned</td>
                                                             <td>
                                                                 <ion-icon name="eye-outline"></ion-icon>
                                                             </td>
@@ -373,7 +391,7 @@
                                                             <td>12-Jan-23</td>
                                                             <td>12-Apr-23</td>
                                                             <td>12-Jan-23</td>
-                                                            <td>performed</td>
+                                                            <td>Completed</td>
                                                             <td>
                                                                 <ion-icon name="eye-outline"></ion-icon>
                                                             </td>
@@ -397,7 +415,7 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header">
-                                                Add Gate Pass
+                                                Gate Pass Log
                                             </div>
                                             <div class="card-body">
                                                 <div class="row">
@@ -406,30 +424,95 @@
                                                         <input placeholder="Name" type="text" class="form-control">
                                                     </div>
                                                     <div class="col-3">
-                                                        <label class="mt-1 form-label">Gate Pass Reason</label>
-                                                        <input placeholder="Name" type="text" class="form-control">
-                                                    </div>
-                                                    <div class="col-3">
                                                         <label class="mt-1 form-label">GP Date
                                                         </label>
                                                         <input placeholder="Name" type="date" class="form-control">
                                                     </div>
                                                     <div class="col-3">
-                                                        <label class="mt-1 form-label">Recieving Date
+                                                        <label class="mt-1 form-label">Expected Return date
                                                         </label>
                                                         <input placeholder="Name" type="date" class="form-control">
                                                     </div>
-                                                </div> 
+                                                    {{-- <div class="col-3">
+                                                        <label class="mt-1 form-label">Return date
+                                                        </label>
+                                                        <input placeholder="Name" type="date" class="form-control">
+                                                    </div> --}}
+
+                                                </div>
+                                                <div class="row">
+                                                     <div class="col-6">
+                                                        <label class="mt-1 form-label">Gate Pass Reason</label>
+                                                        <textarea class="form-control" name="" id="" cols="30" rows="3"></textarea>
+                                                    </div>
+                                                   
+                                                   
+                                                   
+                                                </div>
                                                 <div class="row mt-4">
                                                     <div class="col-12">
                                                         <button class="btn btn-primary">ADD</button>
-                                                    </div>    
-                                                </div> 
-                                                
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                Gate Pass log Reports
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table table-head-fixed text-nowrap">
+                                                    <thead>
+                                                      <tr>
+                                                        <th>Gate Pass No</th>
+                                                        <th>GP Date</th>
+                                                        <th>Expected Return Date</th>
+                                                        <th>Return Date</th>
+                                                        <th>Detail</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td>183</td>
+                                                        <td>11-7-2014</td>
+                                                        <td>11-7-2014</td>
+                                                        <td>11-7-2014</td>
+                                                         <td><a href="{{ route('gp-detail') }}">
+                                                                    <ion-icon name="document-outline"></ion-icon>
+                                                                </a> </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>219</td>
+                                                        <td>11-7-2014</td>
+                                                        <td>11-7-2014</td>
+                                                        <td>11-7-2014</td>
+                                                         <td><a href="{{ route('gp-detail') }}">
+                                                                    <ion-icon name="document-outline"></ion-icon>
+                                                                </a> </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>657</td>
+                                                        <td>11-7-2014</td>
+                                                        <td>11-7-2014</td>
+                                                        <td>11-7-2014</td>
+                                                         <td><a href="{{ route('gp-detail') }}">
+                                                                    <ion-icon name="document-outline"></ion-icon>
+                                                                </a> </td>
+                                                      </tr>
+                                                      
+                                                   
+                                                    </tbody>
+                                                  </table>
                                             </div>
                                         </div>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -440,4 +523,34 @@
         </div>
     </div>
     </div>
+    
+<script>
+    $(document).ready(function() {
+        console.log("ready!");
+        check_type();
+    });
+
+    function check_type(){
+        
+        if($('#sch_type').val()=="timely"){
+            $('#ppm_type').show();
+            $('#num_itt').show();
+            $('#meter').hide();
+            $('#unit').hide();
+
+        }else{
+            $('#ppm_type').hide();
+            $('#num_itt').hide();
+            $('#meter').show();
+            $('#unit').show();
+        }
+    }
+    $(document).on('change', '#sch_type', function() {
+
+       
+    
+        check_type();
+    });
+</script>
 @endsection
+
