@@ -1,6 +1,22 @@
 @extends('layout.header')
 @section('section')
-
+    <div class="row mt-1 mx-2 d-flex align-items-center">
+        <div class="col-3">
+            <label for="" class="form-label">start date</label>
+            <input type="date" class="form-control">
+        </div>
+        <div class="col-3">
+            <label for="" class="form-label">end date</label>
+            <input type="date" class="form-control">
+        </div>
+        <div class="col-3">
+            <label for="" class="form-label">Equipment Type Name</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-3 mt-4">
+            <button class="btn btn-primary">Search</button>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="card">

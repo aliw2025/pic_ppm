@@ -12,7 +12,7 @@
                                     href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home"
                                     aria-selected="false">Item Registration</a>
                             </li>
-                           
+
                             {{-- <li class="nav-item">
                                 <a class="nav-link" id="custom-tabs-two-messages-tab" data-toggle="pill"
                                     href="#custom-tabs-two-messages" role="tab" aria-controls="custom-tabs-two-messages"
@@ -209,7 +209,7 @@
                                         <div class="card">
                                             <div class="card-body">
 
-                                                <div class="row">   
+                                                <div class="row">
                                                     <div class="col-3">
                                                         <label class="mt-1 form-label">PPM Type</label>
                                                         <select name="" id="" class="form-control">
@@ -238,8 +238,8 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                           
+
+
                             {{-- <div class="tab-pane fade" id="custom-tabs-two-messages" role="tabpanel"
                                 aria-labelledby="custom-tabs-two-messages-tab">
                             vendor
@@ -250,7 +250,7 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header">
-                                                    <h4>Create PPM Scheudule</h4>
+                                                <h4>Create PPM Scheudule</h4>
                                             </div>
                                             <div class="card-body">
                                                 <div class="row d-flex align-items-center">
@@ -271,13 +271,13 @@
                                                     <div class="mt-4 col-3">
                                                         <button class="btn btn-primary">Finalize Schedule</button>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row mt-2">
                                     <div class="col-12">
                                         <div class="card">
@@ -288,7 +288,8 @@
                                                 <div class="row">
                                                     <div class="col-3">
                                                         <label class="mt-1 form-label">PPM type</label>
-                                                        <input value="quarterly" type="text" class="form-control" disabled>
+                                                        <input value="quarterly" type="text" class="form-control"
+                                                            disabled>
                                                     </div>
                                                     <div class="col-3">
                                                         <label class="mt-1 form-label">Last PPM Date</label>
@@ -316,67 +317,120 @@
                                             <div class="card-body">
                                                 <table class="table table-head-fixed text-nowrap">
                                                     <thead>
-                                                      <tr>
-                                                        <th>Sr#</th>
-                                                        <th>Expected PPM date</th>
-                                                        <th>Planned PPM date</th>
-                                                        <th>Performed date</th>
-                                                        <th>Status</th>
-                                                        <th>PPM Report</th>
-                                                        <th>  detail</th>
-                                                        
-                                                      </tr>
+                                                        <tr>
+                                                            <th>Sr#</th>
+                                                            <th>Expected PPM date</th>
+                                                            <th>Planned PPM date</th>
+                                                            <th>Performed date</th>
+                                                            <th>Status</th>
+                                                            <th>PPM Report</th>
+                                                            <th> detail</th>
+
+                                                        </tr>
                                                     </thead>
                                                     <tbody>
-                                                      <tr>
-                                                        <td>183</td>
-                                                        <td>12-Jan-23</td>
-                                                        <td>12-Jan-23</td>
-                                                        <td>12-Jan-23</td>
-                                                        <td>pending</td>
-                                                        <td><ion-icon name="eye-outline"></ion-icon></td>
-                                                        <td><a href="{{route('ppm-detail')}}"><ion-icon name="document-outline"></ion-icon></a> </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <td>219</td>
-                                                        <td>12-Jan-23</td>
-                                                        <td>12-Feb-23</td>
-                                                        <td>12-Jan-23</td>
-                                                        <td>performed</td>
-                                                        <td><ion-icon name="eye-outline"></ion-icon></td>
-                                                        <td><ion-icon name="document-outline"></ion-icon></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <td>657</td>
-                                                        <td>12-Jan-23</td>
-                                                        <td>12-Mar-23</td>
-                                                        <td>12-Jan-23</td>
-                                                        <td>pending</td>
-                                                        <td><ion-icon name="eye-outline"></ion-icon></td>
-                                                        <td><ion-icon name="document-outline"></ion-icon></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <td>175</td>
-                                                        <td>12-Jan-23</td>
-                                                        <td>12-Apr-23</td>
-                                                        <td>12-Jan-23</td>
-                                                        <td>performed</td>
-                                                        <td><ion-icon name="eye-outline"></ion-icon></td>
-                                                        <td><ion-icon name="document-outline"></ion-icon></td>
-                                                      </tr>
-                                                       
+                                                        <tr>
+                                                            <td>183</td>
+                                                            <td>12-Jan-23</td>
+                                                            <td>12-Jan-23</td>
+                                                            <td>12-Jan-23</td>
+                                                            <td>pending</td>
+                                                            <td>
+                                                                <ion-icon name="eye-outline"></ion-icon>
+                                                            </td>
+                                                            <td><a href="{{ route('ppm-detail') }}">
+                                                                    <ion-icon name="document-outline"></ion-icon>
+                                                                </a> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>219</td>
+                                                            <td>12-Jan-23</td>
+                                                            <td>12-Feb-23</td>
+                                                            <td>12-Jan-23</td>
+                                                            <td>performed</td>
+                                                            <td>
+                                                                <ion-icon name="eye-outline"></ion-icon>
+                                                            </td>
+                                                            <td>
+                                                                <ion-icon name="document-outline"></ion-icon>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>657</td>
+                                                            <td>12-Jan-23</td>
+                                                            <td>12-Mar-23</td>
+                                                            <td>12-Jan-23</td>
+                                                            <td>pending</td>
+                                                            <td>
+                                                                <ion-icon name="eye-outline"></ion-icon>
+                                                            </td>
+                                                            <td>
+                                                                <ion-icon name="document-outline"></ion-icon>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>175</td>
+                                                            <td>12-Jan-23</td>
+                                                            <td>12-Apr-23</td>
+                                                            <td>12-Jan-23</td>
+                                                            <td>performed</td>
+                                                            <td>
+                                                                <ion-icon name="eye-outline"></ion-icon>
+                                                            </td>
+                                                            <td>
+                                                                <ion-icon name="document-outline"></ion-icon>
+                                                            </td>
+                                                        </tr>
+
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
-                            
+
                             <div class="tab-pane fade " id="custom-tabs-two-settings" role="tabpanel"
                                 aria-labelledby="custom-tabs-two-settings-tab">
-                               gate pass
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                Add Gate Pass
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <label class="mt-1 form-label">Gate Pass#</label>
+                                                        <input placeholder="Name" type="text" class="form-control">
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <label class="mt-1 form-label">Gate Pass Reason</label>
+                                                        <input placeholder="Name" type="text" class="form-control">
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <label class="mt-1 form-label">GP Date
+                                                        </label>
+                                                        <input placeholder="Name" type="date" class="form-control">
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <label class="mt-1 form-label">Recieving Date
+                                                        </label>
+                                                        <input placeholder="Name" type="date" class="form-control">
+                                                    </div>
+                                                </div> 
+                                                <div class="row mt-4">
+                                                    <div class="col-12">
+                                                        <button class="btn btn-primary">ADD</button>
+                                                    </div>    
+                                                </div> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
