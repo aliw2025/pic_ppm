@@ -28,13 +28,22 @@ class Controller extends BaseController
         return view('vendor.vendors');
 
     }
+
     public function ppmDetail(Request $request){
         return view('ppm.ppm-detail');
     }
+
+
     public function gpDetail(Request $request){
         return view('ppm.gate-pass-details');
     }
+
     public function ppmList(Request $request){
         return view('ppm.ppm-list');
+    }
+
+    public function addWorkOrder(Request $request){
+
+        return view('work-order.add-wo');
     }
 }

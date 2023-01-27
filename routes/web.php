@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::get('/add-asset', [\App\Http\Controllers\Controller::class,'addAsset'])->name('add-asset');
 Route::get('/add-vendor', [\App\Http\Controllers\Controller::class,'addVendor'])->name('add-vendor');
+Route::get('/add-work-order', [\App\Http\Controllers\Controller::class,'addWorkOrder'])->name('add-work-order');
 Route::get('/vendors', [\App\Http\Controllers\Controller::class,'vendors'])->name('vendors');
 Route::get('/ppm-detail', [\App\Http\Controllers\Controller::class,'ppmDetail'])->name('ppm-detail');
 Route::get('/gp-detail', [\App\Http\Controllers\Controller::class,'gpDetail'])->name('gp-detail');

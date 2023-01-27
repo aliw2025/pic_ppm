@@ -46,46 +46,89 @@
                          </p>
                      </a>
                  </li>
-                 <li class="nav-item">
-                     <a href="{{ route('add-asset') }}" class="nav-link">
-
-                         <p>
-                             Add Asset
-                         </p>
-                     </a>
-                 </li>
-                 <li class="nav-item">
-                  <a href="{{ route('ppm-list') }}" class="nav-link">
-
-                      <p>
-                         Upcoming Maintainences
-                      </p>
-                  </a>
-              </li>
                  <li class="nav-item ">
-                     <a href="#" class="nav-link">
+                    <a href="#" class="nav-link">
+
+                        <p>
+                            Vendors
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('vendors') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Vendors</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add-vendor') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Vendor</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                 <li class="nav-item ">
+                    <a href="#" class="nav-link">
+
+                        <p>
+                           Assets
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('add-asset') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Asset</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Assets List</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                
+                 
+                 <li class="nav-item ">
+                    <a href="#" class="nav-link">
+
+                        <p>
+                            Work Order
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('add-work-order') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>  Add Work Order</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Work Order List</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                 <li class="nav-item">
+                     <a href="{{ route('ppm-list') }}" class="nav-link">
 
                          <p>
-                             Vendors
-                             <i class="right fas fa-angle-left"></i>
+                             Upcoming Maintainences
                          </p>
                      </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="{{ route('vendors') }}" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Vendors</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="{{ route('add-vendor') }}" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Add Vendor</p>
-                             </a>
-                         </li>
-
-                     </ul>
                  </li>
+                
 
              </ul>
          </nav>
