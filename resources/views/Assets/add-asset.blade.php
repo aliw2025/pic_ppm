@@ -43,8 +43,6 @@
                                 aria-labelledby="custom-tabs-two-home-tab">
                               @include('Assets.item-registration')
                             </div>
-
-
                             <div class="tab-pane fade" id="custom-tabs-two-ppm" role="tabpanel"
                                 aria-labelledby="custom-tabs-two-ppm-tab">
                                 @include('Assets.ppm-schedule')

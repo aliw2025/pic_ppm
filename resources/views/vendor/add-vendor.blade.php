@@ -20,11 +20,7 @@
                                     <input placeholder="Name" type="text" class="form-control">
                                 </div>
                             </div>
-
-
                             
-
-
                         </form>
                     </div>
                 </div>

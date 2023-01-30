@@ -41,6 +41,9 @@ class Controller extends BaseController
     public function ppmList(Request $request){
         return view('ppm.ppm-list');
     }
+    public function woList(Request $request){
+        return view('work-order.wo-list');
+    }
 
     public function addWorkOrder(Request $request){
 

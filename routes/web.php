@@ -27,6 +27,7 @@ Route::get('/ppm-detail', [\App\Http\Controllers\Controller::class,'ppmDetail'])
 Route::get('/gp-detail', [\App\Http\Controllers\Controller::class,'gpDetail'])->name('gp-detail');
 
 Route::get('/ppm-list', [\App\Http\Controllers\Controller::class,'ppmList'])->name('ppm-list');
+Route::get('/wo-list', [\App\Http\Controllers\Controller::class,'woList'])->name('wo-list');
 
 
 
