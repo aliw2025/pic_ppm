@@ -18,7 +18,6 @@
 <!-- AdminLTE -->
 <script src="{{url('resources/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{url('resources/js/adminlte.js')}}"></script>
-
 <!-- OPTIONAL SCRIPTS -->
 <script src="{{url('resources/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
