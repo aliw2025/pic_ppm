@@ -28,6 +28,8 @@ Route::get('/gp-detail', [\App\Http\Controllers\Controller::class,'gpDetail'])->
 
 Route::get('/ppm-list', [\App\Http\Controllers\Controller::class,'ppmList'])->name('ppm-list');
 Route::get('/wo-list', [\App\Http\Controllers\Controller::class,'woList'])->name('wo-list');
+Route::get('/asset-list', [\App\Http\Controllers\Controller::class,'assetList'])->name('asset-list');
+
 
 
 

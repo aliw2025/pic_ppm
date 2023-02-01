@@ -49,4 +49,8 @@ class Controller extends BaseController
 
         return view('work-order.add-wo');
     }
+    public function assetList(Request $request){
+
+        return view('Assets.asset-list');
+    }
 }

@@ -86,7 +86,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('asset-list')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Assets List</p>
                             </a>
@@ -98,7 +98,6 @@
                  
                  <li class="nav-item ">
                     <a href="#" class="nav-link">
-
                         <p>
                             Work Order
                             <i class="right fas fa-angle-left"></i>
@@ -117,12 +116,10 @@
                                 <p>Work Order List</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
                  <li class="nav-item">
                      <a href="{{ route('ppm-list') }}" class="nav-link">
-
                          <p>
                              Upcoming Maintainences
                          </p>

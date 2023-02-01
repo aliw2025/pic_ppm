@@ -1,12 +1,19 @@
 @extends('layout.header')
 @section('section')
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Work Order Search</h4>
-                </div>
-                <div class="card-body">
+<div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn  collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+           <h4>Work Order Search</h4>
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <div class="">
+                <div class="">
                     <div class="row d-flex">
                         <div class="col-2">
                             <div style="height: 300px" class="card p-2">
@@ -18,8 +25,6 @@
                                     <input type="date" class="form-control">
                                 </div>
                             </div>
-                            
-
                         </div>
                         <div class="col-2">
                             <div style="height: 300px" class="card p-2">
@@ -104,7 +109,26 @@
                             </div>
                         </div>
                         <div class="col-2">
-                            <div style="height: 145px" class="card p-2">
+                            <div style="height: 300px" class="card p-2">
+                                <p>Asset</p>
+                               
+                                <div>
+                                    <label for="">Equipment Name </label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                                <div>
+                                    <label for="">Type</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                                <div>
+                                    <label for="">Model </label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div style="height: 300px" class="card p-2">
                                 <p>Assigned Resource</p>
                                
                                 <div>
@@ -113,15 +137,7 @@
                                 </div>
                                
                             </div>
-                            <div style="height: 145px" class="card p-2">
-                                <p>Asset</p>
-                               
-                                <div>
-                                    <label for="">Equipment Name </label>
-                                    <input type="text" class="form-control" >
-                                </div>
-                               
-                            </div>
+                            
                             
                         </div>
                         <div class="col-2">
@@ -133,15 +149,14 @@
                 </div>
             </div>
         </div>
-
+      </div>
     </div>
+    
+  </div>
     
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-
-                </div>
                 <div class="card-body">
                     <table class="table table-head-fixed text-nowrap">
                         <thead>
