@@ -70,6 +70,14 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <h5>Equipment Detail</h5>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <p style="margin: 0">Name:</p>
+                                            </div>
+                                            <div class="col-4">
+                                                <p style="margin: 0">Computer</p>
+                                            </div>
+                                        </div>
                                         <p style="margin: 0">Name                   : Computer</p>
                                         <p style="margin: 0">Type                   : Desktop</p>
                                         <p style="margin: 0">Model                  : G123</p>
