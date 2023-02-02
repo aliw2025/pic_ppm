@@ -29,7 +29,7 @@
   Apply one or more of the following classes to to the body tag
   to get the desired effect
 
-  * sidebar-collapse
+  * sidebar-collapse    
   * sidebar-mini
 -->
 
@@ -41,7 +41,12 @@
         @include('layout.sidebar')
         <div class="content-wrapper">
             <!-- Content Wrapper. Contains page content -->
-            @yield('section')
+            <div class="content">
+                <div class="container-fluid">
+                    @yield('section')
+                </div>
+            </div>
+           
             <!-- /.content-wrapper -->
         </div>
         <!-- Control Sidebar -->

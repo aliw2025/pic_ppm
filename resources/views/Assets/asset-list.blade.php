@@ -21,6 +21,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {{--  --}}
                             <tr data-toggle="modal" data-target="#exampleModalCenter">
                                 <td>183</td>
                                 <td>Computer</td>
@@ -49,8 +50,6 @@
             </div>
         </div>
     </div>
-
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
@@ -71,29 +70,121 @@
                                     <div class="col-6">
                                         <h5>Equipment Detail</h5>
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-6">
                                                 <p style="margin: 0">Name:</p>
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-6">
                                                 <p style="margin: 0">Computer</p>
                                             </div>
                                         </div>
-                                        <p style="margin: 0">Name                   : Computer</p>
-                                        <p style="margin: 0">Type                   : Desktop</p>
-                                        <p style="margin: 0">Model                  : G123</p>
-                                        <p style="margin: 0">Seriel #               : 1234</p>
-                                        <p style="margin: 0">Manufacturer           : 1234</p>
-                                        <p style="margin: 0">Model                  : 1234</p>
-                                        <p style="margin: 0">FA #                   : 1234</p>
-                                        <p style="margin: 0">Equipment Sequence #   : 1234</p>
-                                        <p style="margin: 0">Manufacture Date       : 1234</p>
-                                        <p style="margin: 0">Installation Date      : 1234</p>
-                                        <p style="margin: 0">Status                 : 1234</p>
-                                        <p style="margin: 0">Vendor                 : 1234</p>
-
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Type:</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">Desktop</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Model:</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">G12</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Seriel # :</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">1234</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Manufacturer :</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">Dell</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Model :</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">1234</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">FA #:</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">1234</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Equipment Sequence #:</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">1234</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Manufacture Date :</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">1234</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Manufacture Date :</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">12-Jan-23</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Installation Datee :</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">12-Jan-23</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Status :</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">Running</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Vendor:</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">Apex</p>
+                                            </div>
+                                        </div>
+                                       
                                     </div>
                                     <div class="col-6">
                                         <h5>Location</h5>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p style="margin: 0">Vendor:</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p style="margin: 0">Apex</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
