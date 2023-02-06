@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
    return view('layout.main');
 })->name('index');
+Route::get('/admin-panel', [\App\Http\Controllers\Controller::class,'adminPanel'])->name('admin-panel');
 
 Route::get('/add-asset', [\App\Http\Controllers\Controller::class,'addAsset'])->name('add-asset');
 Route::get('/add-vendor', [\App\Http\Controllers\Controller::class,'addVendor'])->name('add-vendor');

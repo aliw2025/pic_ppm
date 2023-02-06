@@ -12,6 +12,13 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+
+    public function adminPanel(){
+
+
+        return view('admin.admin-panel');
+
+    }
     public function addAsset(Request $request){
 
         return view('Assets.add-asset');

@@ -15,10 +15,10 @@
                      alt="User Image">
              </div>
              <div class="info">
-                 <a href="#" class="d-block">Admin</a>
+                 <a href="{{route('admin-panel')}}"  class="d-block">Admin</a>
              </div>
          </div>
-
+         
          <!-- SidebarSearch Form -->
          <div class="form-inline">
              <div class="input-group" data-widget="sidebar-search">

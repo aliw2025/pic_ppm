@@ -14,19 +14,35 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-6 mt-1">
-                                                <label for="">Description</label>
-                                                <input placeholder="Description" type="text" class="form-control">
-                                            </div>
-                                            <div class="col-6 mt-1">
                                                 <label for="form-label">Request Type</label>
                                                 <select name="" id="" class="form-control">
-                                                    <option value="PPM">PPM</option>
-                                                    <option value="PPM">Demand</option>
+                                                    <option value="PPM">PM</option>
                                                     <option value="PPM">Complaint</option>
+                                                    <option value="PPM">Incedent</option>
+                                                    <option value="PPM">Self Assigned Task</option>
+                                                    <option value="PPM">Task Assigned by senior</option>
+                                                    <option value="PPM">Request for Information</option>
                                                 </select>
-
                                             </div>
-                    
+                                            <div class="col-6 mt-1">
+                                                <label for="">Deparment</label>
+                                                <select name="" id="" class="form-control">
+                                                    <option value="">BME</option>
+                                                    <option value="">ICT</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-6 mt-1">
+                                                <label for="">Category</label>
+                                                <select name="" id="" class="form-control">
+                                                    <option value="">PC Deployement</option>
+                                                    <option value="">Server Maintainence</option>
+                                                    <option value="">Window Installation</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-6 mt-1">
+                                                <label for="">Asset</label>
+                                                <input type="text" class="form-control">
+                                            </div>
                                             <div class="col-6 mt-1">
                                                 <label for="">Priority</label>
                                                 <select name="" id="" class="form-control">
@@ -36,24 +52,8 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-6 mt-1">
-                                                <label for="">Deparment</label>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">BME</option>
-                                                    <option value="">ICT</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="col-6 mt-1">
-                                                <label for="">Asset</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                           {{-- <div class="col-12 mt-1">
-                                                <label for="">Description</label>
-                                                <textarea class="form-control" name="" id="" cols="30" rows="3"></textarea>
-                                           </div> --}}
-
                                         </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -70,6 +70,8 @@
                                                 <select name="" id="" class="form-control">
                                                     <option value="">Draft</option>
                                                     <option value="">Pending</option>
+                                                    <option value="">Deffered</option>
+                                                    <option value="">On Hold</option>
                                                     <option value="">Assigned</option>
                                                     <option value="">In Progress</option>
                                                     <option value="">Closed</option>
@@ -89,9 +91,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <div class="card-body">
+                                    <label for="">Description</label>
+                                    <div style="min-height: " id="summernote"></div>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="row ">
                             <div class=" col-12 d-flex justify-content-end">
-                                <button  class="btn btn-primary">Save</button>
+                                <button class="btn btn-primary">Save</button>
                             </div>
                         </div>
                     </form>
@@ -100,4 +112,5 @@
             </div>
         </div>
     </div>
+   
 @endsection
