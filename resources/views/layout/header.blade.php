@@ -14,7 +14,8 @@
     {{-- for rich text feild --}}
     <link rel="stylesheet" href="{{url('resources/plugins/summernote/summernote-bs4.min.css')}}">
     
-    
+    <script src="{{url('resources/plugins/jquery/jquery.min.js')}}"></script>
+
     <!-- IonIcons -->
     {{-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> --}}
     <!-- Theme style -->

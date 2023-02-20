@@ -30,6 +30,11 @@ Route::get('/gp-detail', [\App\Http\Controllers\Controller::class,'gpDetail'])->
 Route::get('/ppm-list', [\App\Http\Controllers\Controller::class,'ppmList'])->name('ppm-list');
 Route::get('/wo-list', [\App\Http\Controllers\Controller::class,'woList'])->name('wo-list');
 Route::get('/asset-list', [\App\Http\Controllers\Controller::class,'assetList'])->name('asset-list');
+Route::get('/add-department', [\App\Http\Controllers\Controller::class,'addDepartment'])->name('add-department');
+Route::get('/service-categories', [\App\Http\Controllers\Controller::class,'serviceCategories'])->name('service-categories');
+Route::get('/define-sla', [\App\Http\Controllers\Controller::class,'defineSla'])->name('define-sla');
+
+
 
 
 

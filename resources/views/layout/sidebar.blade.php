@@ -31,7 +31,6 @@
                  </div>
              </div>
          </div>
-
          <!-- Sidebar Menu -->
          <nav class="mt-2">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -40,7 +39,6 @@
                with font-awesome or any other icon font library -->
                  <li class="nav-item">
                      <a href="{{ route('index') }}" class="nav-link">
-
                          <p>
                              Dashboard
                          </p>
@@ -48,7 +46,6 @@
                  </li>
                  <li class="nav-item ">
                     <a href="#" class="nav-link">
-
                         <p>
                             Vendors
                             <i class="right fas fa-angle-left"></i>
@@ -67,12 +64,10 @@
                                 <p>Add Vendor</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
                  <li class="nav-item ">
                     <a href="#" class="nav-link">
-
                         <p>
                            Assets
                             <i class="right fas fa-angle-left"></i>
@@ -95,7 +90,6 @@
                     </ul>
                 </li>
                 
-                 
                  <li class="nav-item ">
                     <a href="#" class="nav-link">
                         <p>

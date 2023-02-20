@@ -60,4 +60,17 @@ class Controller extends BaseController
 
         return view('Assets.asset-list');
     }
+    public function addDepartment(Request $request){
+        return view('admin.add-departments');
+    }
+
+    public function serviceCategories(Request $request){
+        return view('admin.add-service-cats');
+    }
+
+    public function defineSla(Request $request){
+        return view('admin.define-sla');
+    } 
+    
+   
 }

@@ -88,9 +88,7 @@
             }
         }
         $(document).on('change', '#sch_type', function() {
-
-
-
+            
             check_type();
         });
     </script>

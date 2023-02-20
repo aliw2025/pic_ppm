@@ -38,29 +38,47 @@
                      </a>
                      <ul class="nav nav-treeview">
                          
-                         {{-- <li class="nav-item">
-                             <a href="{{ route('add-vendor') }}" class="nav-link">
+                         <li class="nav-item">
+                             <a href="{{ route('define-sla') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
-                                 <p>Add Vendor</p>
+                                 <p>Define SLA</p>
                              </a>
-                         </li> --}}
+                         </li>
 
                      </ul>
                  </li>
                  <li class="nav-item ">
                     <a href="#" class="nav-link">
                         <p>
+                            Departments
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        
+                        <li class="nav-item">
+                            <a href="{{ route('add-department') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Department</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                 <li class="nav-item ">
+                    <a  class="nav-link">
+                        <p>
                             Service Category
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('vendors') }}" class="nav-link">
+                        <li class="nav-item">
+                            <a href="{{route('service-categories')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Vendors</p>
+                                <p>Deparment Wise</p>
                             </a>
-                        </li> --}}
+                        </li>
                         
 
                     </ul>
