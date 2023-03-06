@@ -18,8 +18,6 @@
                             </a>
                         </div>
                     </div>
-
-
                 </div>
                 <div id="collapseTwo" class=" card-body collapse show" aria-labelledby="headingOne"
                     data-parent="#accordion">
@@ -102,6 +100,17 @@
                                             </div>
                                             <div class="col-6 mt-1">
                                                 <label for="">Assigned to</label>
+                                                <select name="" id="" class="form-control">
+                                                    <option value="">Self</option>
+                                                    <option value="">Vendor</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-6 mt-1">
+                                                <label for="">Vendor </label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <div class="col-6 mt-1">
+                                                <label for="">Technician</label>
                                                 <input type="text" class="form-control">
                                             </div>
                                         </div>
@@ -111,6 +120,12 @@
                         </div>
                         <div class="row">
 
+                            <div class="col-3">
+                                <div class="card-body">
+                                    <label for="">Title</label>
+                                   <input type="text" class="form-control" name="" id="" placeholder="Title">
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <div class="card-body">
                                     <label for="">Description</label>
@@ -119,6 +134,7 @@
                             </div>
 
                         </div>
+                       
                         <div class="row ">
                             <div class=" col-12 d-flex justify-content-end">
                                 <button class="btn btn-primary">Save</button>

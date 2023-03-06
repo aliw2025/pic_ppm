@@ -72,5 +72,9 @@ class Controller extends BaseController
         return view('admin.define-sla');
     } 
     
+    public function calender(Request $request){
+
+        return view('calender.calender');
+    }
    
 }

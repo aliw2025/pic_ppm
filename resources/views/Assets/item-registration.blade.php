@@ -172,7 +172,6 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-
                 <div class="row">
                     <div class="col-3">
                         <label class="mt-1 form-label">PPM Type</label>

@@ -1,24 +1,14 @@
 <div class="row mt-2">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">
+            <div data-toggle="modal" data-target="#exampleModalCenter" class="card-header">
                 <h4>PPM Summary</h4>
-                <p>Equipment Type Name</p>
-            </div>
-            <div class="card-body">
-                {{-- <div class="row">
+                <p class="m-0">Computer</p>
+                <p class="m-0">All in one</p>
+                <p class="m-0">HP Core i7</p>
 
-                    <div class="col-3">
-                        <label class="mt-1 form-label">Last PPM Date</label>
-                        <input type="date" class="form-control">
-                    </div>
-                    <div class="col-3">
-                        <label class="mt-1 form-label">Next PPM Date</label>
-                        <input type="date" class="form-control">
-                    </div>
-                   
-                </div> --}}
             </div>
+            
         </div>
     </div>
 </div>
@@ -87,8 +77,9 @@
                             <th>Planned PPM date</th>
                             <th>Performed date</th>
                             <th>Status</th>
-                            <th>Schedule Report</th>
-                            <th> detail</th>
+                            <th>Detail</th>
+                            <th>Action</th>
+                           
 
                         </tr>
                     </thead>
@@ -96,53 +87,57 @@
                         <tr>
                             <td>183</td>
                             <td>12-Jan-23</td>
-                            <td>12-Jan-23</td>
+                            {{-- <td>12-Jan-23</td> --}}
+                            <td><input type="date" class="form-control"></td>
                             <td>12-Jan-23</td>
                             <td>Planned</td>
-                            <td>
-                                <ion-icon name="eye-outline"></ion-icon>
-                            </td>
-                            <td><a href="{{ route('ppm-detail') }}">
-                                    <ion-icon name="document-outline"></ion-icon>
+                            
+                            <td><a href="{{ route('add-work-order') }}">
+                                    <i style="color:black; font-size: 15px" class="fas fa-eye"></i>
                                 </a> </td>
+                                <td>
+                                    <i style="font-size: 15px" class="fas fa-save"></i>
+                                </td>
                         </tr>
                         <tr>
                             <td>219</td>
                             <td>12-Jan-23</td>
-                            <td>12-Feb-23</td>
+                            <td><input type="date" class="form-control"></td>
                             <td>12-Jan-23</td>
                             <td>Completed</td>
+                            <td><a href="{{ route('add-work-order') }}">
+                                <i style="color:black; font-size: 15px" class="fas fa-eye"></i>
+                            </a> </td>
                             <td>
-                                <ion-icon name="eye-outline"></ion-icon>
+                                <i style="font-size: 15px" class="fas fa-save"></i>
                             </td>
-                            <td>
-                                <ion-icon name="document-outline"></ion-icon>
-                            </td>
+                           
                         </tr>
                         <tr>
                             <td>657</td>
                             <td>12-Jan-23</td>
-                            <td>12-Mar-23</td>
+                            <td><input type="date" class="form-control"></td>
                             <td>12-Jan-23</td>
                             <td>Planned</td>
+                            <td><a href="{{ route('add-work-order') }}">
+                                <i style="color:black; font-size: 15px" class="fas fa-eye"></i>
+                            </a> </td>
                             <td>
-                                <ion-icon name="eye-outline"></ion-icon>
-                            </td>
-                            <td>
-                                <ion-icon name="document-outline"></ion-icon>
+                                <i style="font-size: 15px" class="fas fa-save"></i>
+                                
                             </td>
                         </tr>
                         <tr>
                             <td>175</td>
                             <td>12-Jan-23</td>
-                            <td>12-Apr-23</td>
+                            <td><input type="date" class="form-control"></td>
                             <td>12-Jan-23</td>
                             <td>Completed</td>
+                            <td><a href="{{ route('add-work-order') }}">
+                                <i style="color:black; font-size: 15px" class="fas fa-eye"></i>
+                            </a> </td>
                             <td>
-                                <ion-icon name="eye-outline"></ion-icon>
-                            </td>
-                            <td>
-                                <ion-icon name="document-outline"></ion-icon>
+                                <i style="font-size: 15px" class="fas fa-save"></i>
                             </td>
                         </tr>
 
@@ -151,4 +146,151 @@
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+        <div class=" bg-dark">
+            {{-- class="modal-title text-center" --}}
+            <h5 class="mt-2 text-center">Equipment Type Name</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+           
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <h5>Equipment Detail</h5>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Name:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">Computer</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Type:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">Desktop</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Model:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">G12</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Seriel # :</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">1234</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Manufacturer :</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">Dell</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Model :</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">1234</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">FA #:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">1234</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Equipment Sequence #:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">1234</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Manufacture Date :</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">1234</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Manufacture Date :</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">12-Jan-23</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Installation Datee :</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">12-Jan-23</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Status :</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">Running</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Vendor:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">Apex</p>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-6">
+                                <h5>Location</h5>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style="margin: 0">Vendor:</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin: 0">Apex</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+        </div>
+        {{-- <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div> --}}
+    </div>
+</div>
 </div>

@@ -34,6 +34,7 @@ Route::get('/add-department', [\App\Http\Controllers\Controller::class,'addDepar
 Route::get('/service-categories', [\App\Http\Controllers\Controller::class,'serviceCategories'])->name('service-categories');
 Route::get('/define-sla', [\App\Http\Controllers\Controller::class,'defineSla'])->name('define-sla');
 
+Route::get('/calender', [\App\Http\Controllers\Controller::class,'calender'])->name('Calender');
 
 
 
