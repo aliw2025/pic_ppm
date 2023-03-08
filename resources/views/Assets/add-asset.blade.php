@@ -33,8 +33,11 @@
                                     href="#custom-tabs-two-BME" role="tab" aria-controls="custom-tabs-two-BME"
                                     aria-selected="true">RAD</a>
                             </li>
-
-
+                            <li class="nav-item">
+                                <a class="nav-link " id="custom-tabs-two-img-tab" data-toggle="pill"
+                                    href="#custom-tabs-two-img" role="tab" aria-controls="custom-tabs-two-img"
+                                    aria-selected="true">Images</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="card-body">
@@ -56,6 +59,11 @@
                                 aria-labelledby="custom-tabs-two-BME-tab">
                                 @include('Assets.rad')
                             </div>
+                            <div class="tab-pane fade " id="custom-tabs-two-img" role="tabpanel"
+                            aria-labelledby="custom-tabs-two-img-tab">
+                            @include('Assets.asset-images')
+                        </div>
+                            
 
                         </div>
                     </div>

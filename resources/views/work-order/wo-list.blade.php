@@ -199,52 +199,56 @@
                         <thead>
                             <tr>
                                 <th>Sr#</th>
-                                <th>Equipment Type Name</th>
-                                <th>Expected PPM Date</th>
-                                <th>Planned PPM Date</th>
-                                <th>Performed Date</th>
+                                <th>Title</th>
+                                <th>Asset</th>
+                                <th>Request Type</th>
+                                <th>Request Category</th>
+                                <th>Expected Completion Date</th>
+
+                                <th>Completion Date</th>
+                                <th>Priority</th>
                                 <th>Status</th>
-                                <th>Detail</th>
+                                <th>Assigned To</th>
+                                
+                                {{-- <th>Detail</th> --}}
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>183</td>
-                                <td>John Doe</td>
-                                <td>Primary</td>
-                                <td>Network Engineer</td>
-                                <td>aliw2025@gmail.com</td>
-                                <td>091222225</td>
-                                <td>03400234243</td>
+                                <td> <a style="color: black" href="{{route('add-work-order')}}">Printer Installation</a> </td>
+                                <td style="font-size: 12px"> 
+                                    Printer<br>
+                                    Thermal | Gainsha tsc 240 pro
+                                </td>
+                                <td>PPM</td>
+                                <td>Printer Installation</td>
+                                <td>10-12-2023</td>
+                                <td>10-12-2023</td>
+                                <td>High</td>
+                                <td>in Progress</td>
+                                <td>Vendor</td>
+                                {{-- <td> <a href="#"></a> <i class="fas fa-file"></i></td> --}}
                             </tr>
                             <tr>
-                                <td>219</td>
-                                <td>Alexander Pierce</td>
-                                <td>Technical</td>
-                                <td>Support Engineer</td>
-                                <td>aliw2025@gmail.com</td>
-                                <td>091222225</td>
-                                <td>03400234243</td>
+                                <td>183</td>
+                                <td>Printer Installation</td>
+                                <td style="font-size: 12px"> 
+                                    Printer<br>
+                                    Thermal | Gainsha tsc 240 pro
+                                </td>
+                                <td>PPM</td>
+                                <td>Printer Installation</td>
+                                <td>10-12-2023</td>
+                                <td>10-12-2023</td>
+                                <td>High</td>
+                                <td>in Progress</td>
+                                <td>Vendor</td>
                             </tr>
-                            <tr>
-                                <td>657</td>
-                                <td>Bob Doe</td>
-                                <td>Secondary</td>
-                                <td>IT Technician</td>
-                                <td>aliw2025@gmail.com</td>
-                                <td>091222225</td>
-                                <td>03400234243</td>
-                            </tr>
-                            <tr>
-                                <td>175</td>
-                                <td>Mike Doe</td>
-                                <td>Primary</td>
-                                <td>Technician</td>
-                                <td>aliw2025@gmail.com</td>
-                                <td>091222225</td>
-                                <td>03400234243</td>
-                            </tr>
+                           
+                           
+                            
 
                         </tbody>
                     </table>

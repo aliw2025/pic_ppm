@@ -65,13 +65,13 @@
                                                     <option value="">Low</option>
                                                 </select>
                                             </div>
-
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6">
+                                
                                 <div class="">
                                     <div class="card-body">
                                         <div class="row">
@@ -152,13 +152,13 @@
                                     href="#custom-tabs-two-res" role="tab" aria-controls="custom-tabs-two-res"
                                     aria-selected="false">Resolution</a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link " id="custom-tabs-two-home-tab" data-toggle="pill"
                                     href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home"
-                                    aria-selected="false">Tasks</a>
+                                    aria-selected="false">Sub Tasks</a>
                             </li>
-
-
+                            
                             <li class="nav-item">
                                 <a class="nav-link" id="custom-tabs-two-ppm-tab" data-toggle="pill"
                                     href="#custom-tabs-two-ppm" role="tab" aria-controls="custom-tabs-two-ppm"

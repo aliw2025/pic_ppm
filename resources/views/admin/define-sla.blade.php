@@ -17,9 +17,18 @@
                     </div>
 
                 </div>
+                {{-- <div class="row mt-2">
+                    <div class="col-3">
+                        <label for="">Request Type</label>
+                        <select name="" id="" class="form-control">
+                            <option value="">PPM</option>
+                            <option value="BME">Incedent</option>
+                        </select>
+                    </div>
+                </div> --}}
                 <div class="row mt-2">
                     <div class="col-3">
-                        <label for="">Serviec Category</label>
+                        <label for="">Service Category</label>
                         <select name="" id="" class="form-control">
                             <option value="">Server Installtion</option>
                             <option value="BME">PC Configuratoin</option>
