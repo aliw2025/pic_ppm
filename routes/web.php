@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\ServiceCategoryController;
+
+
 
 
 /*
@@ -14,6 +18,16 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(['prefix'=>'department'], function(){
+
+   // Route::get('/create', [\App\Http\Controllers\Controller::class,'addDepartment'])->name('add-department');
+   Route::get('/', function(){
+      return "Route";
+   });
+  
+});
+
 
 Route::get('/', function () {
    return view('layout.main');
@@ -30,13 +44,15 @@ Route::get('/gp-detail', [\App\Http\Controllers\Controller::class,'gpDetail'])->
 Route::get('/ppm-list', [\App\Http\Controllers\Controller::class,'ppmList'])->name('ppm-list');
 Route::get('/wo-list', [\App\Http\Controllers\Controller::class,'woList'])->name('wo-list');
 Route::get('/asset-list', [\App\Http\Controllers\Controller::class,'assetList'])->name('asset-list');
-Route::get('/add-department', [\App\Http\Controllers\Controller::class,'addDepartment'])->name('add-department');
+// Route::get('/add-department', [\App\Http\Controllers\Controller::class,'addDepartment'])->name('add-department');
 Route::get('/service-categories', [\App\Http\Controllers\Controller::class,'serviceCategories'])->name('service-categories');
 Route::get('/define-sla', [\App\Http\Controllers\Controller::class,'defineSla'])->name('define-sla');
 
 Route::get('/calender', [\App\Http\Controllers\Controller::class,'calender'])->name('Calender');
 
 
+Route::resource('department', DepartmentController::class);
+Route::resource('serviceCategory', ServiceCategoryController::class);
 
 
 

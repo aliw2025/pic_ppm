@@ -29,7 +29,7 @@
                  <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
 
-                 <li class="nav-item ">
+                 {{-- <li class="nav-item ">
                      <a href="#" class="nav-link">
                          <p>
                              SLA
@@ -46,7 +46,7 @@
                          </li>
 
                      </ul>
-                 </li>
+                 </li> --}}
                  <li class="nav-item ">
                     <a href="#" class="nav-link">
                         <p>
@@ -57,7 +57,7 @@
                     <ul class="nav nav-treeview">
                         
                         <li class="nav-item">
-                            <a href="{{ route('add-department') }}" class="nav-link">
+                            <a href="{{ route('department.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Department</p>
                             </a>
@@ -65,24 +65,7 @@
 
                     </ul>
                 </li>
-                 <li class="nav-item ">
-                    <a  class="nav-link">
-                        <p>
-                            Service Category
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('service-categories')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Deparment Wise</p>
-                            </a>
-                        </li>
-                        
-
-                    </ul>
-                </li>
+                
 
 
 

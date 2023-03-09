@@ -63,135 +63,226 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                   
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <h5>Equipment Detail</h5>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Name:</p>
+
+                    <div class="card">
+                        <div class="card-body ">
+                            <div class="row d-flex justify-content-center">
+                                {{-- src="resources/img/printer.webp" --}}
+                                {{-- <div class="col-3">
+                                    </div> --}}
+                                {{-- style="height: 250px"
+                                style="height: 250px"
+                                style="height: 250px" --}}
+                                {{-- style="height: 250px;"
+                                style="height: 250px;"
+                                style="height: 250px;" --}}
+                                <div class="col-5">
+                                    <div  id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img class="d-block w-100" src="resources/img/printer.webp" alt="First slide">
                                             </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">Computer</p>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src="resources/img/printer.webp" alt="First slide">
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Type:</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">Desktop</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Model:</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">G12</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Seriel # :</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">1234</p>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src="resources/img/printer.webp" alt="First slide">
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Manufacturer :</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">Dell</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Model :</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">1234</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">FA #:</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">1234</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Equipment Sequence #:</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">1234</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Manufacture Date :</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">1234</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Manufacture Date :</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">12-Jan-23</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Installation Datee :</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">12-Jan-23</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Status :</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">Running</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Vendor:</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">Apex</p>
-                                            </div>
-                                        </div>
-                                       
-                                    </div>
-                                    <div class="col-6">
-                                        <h5>Location</h5>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="margin: 0">Vendor:</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="margin: 0">Apex</p>
-                                            </div>
-                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                            data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                            data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
                                     </div>
                                 </div>
                                 
                             </div>
-                        </div>
+                            <div class="row mt-2">
+                                <div class="col-6">
+                                    <h5>Equipment Detail</h5>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Name:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">Computer</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Type:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">Desktop</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Model:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">G12</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Seriel # :</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">1234</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Manufacturer :</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">Dell</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Model :</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">1234</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">FA #:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">1234</p>
+                                        </div>
+                                    </div>
 
-                   
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Manufacture Date :</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">1234</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Manufacture Date :</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">12-Jan-23</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Installation Datee :</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">12-Jan-23</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Status :</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">Running</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Vendor:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">Apex</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Equipment Sequence #:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">1234</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-6">
+                                    <h5>Location</h5>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Building Block:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">IPD</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Floor:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">Basement</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Department:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">BME</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Department:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">BME</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Room / Area:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">Ward <Dl></Dl></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Room / Area:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">Ward <Dl></Dl></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Section:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin: 0">Surgical</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
                 </div>
                 {{-- <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

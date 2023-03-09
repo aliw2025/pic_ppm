@@ -112,13 +112,49 @@
                         </li>
                     </ul>
                 </li>
-                 <li class="nav-item">
+                <li class="nav-item ">
+                    <a  class="nav-link">
+                        <p>
+                            Service Category
+                            
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('serviceCategory.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Deparment Wise</p>
+                            </a>
+                        </li>
+                    
+                    </ul>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <p>
+                            SLA
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        
+                        <li class="nav-item">
+                            <a href="{{ route('define-sla') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Define SLA</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                 {{-- <li class="nav-item">
                      <a href="{{ route('ppm-list') }}" class="nav-link">
                          <p>
                              Upcoming Maintainences
                          </p>
                      </a>
-                 </li>
+                 </li> --}}
                 
 
              </ul>
