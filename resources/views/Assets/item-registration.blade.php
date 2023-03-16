@@ -14,7 +14,7 @@
                 <form class="mx-2" action="">
                     <div class="row">
                         <div class="col-4">
-                            <label class="mt-1 form-label">Equipment Owner </label>
+                            <label class="mt-1 form-label">Asset Technical Category </label>
                             <select name="type" id="" class="form-control">
                                 <option value="BME">BME</option>
                                 <option value="BAF">Building and Facilities</option>

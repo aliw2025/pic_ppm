@@ -40,13 +40,13 @@ class ServiceCategoryController extends Controller
      */
     public function store(Request $request)
     {
-       
+
         $serviceCategory = new TblServiceCategory();
         $serviceCategory->service_category_name = $request->service_category_name;
         $serviceCategory->department_id = $request->department;
         $serviceCategory->save();
+        return redirect()->route('serviceCategory.create');
 
-        return TblServiceCategory::all();
     }
 
     /**
@@ -57,7 +57,7 @@ class ServiceCategoryController extends Controller
      */
     public function show(TblServiceCategory $tblServiceCategory)
     {
-        //
+        
     }
 
     /**
@@ -92,5 +92,13 @@ class ServiceCategoryController extends Controller
     public function destroy(TblServiceCategory $tblServiceCategory)
     {
         //
+    }
+
+    public  function deptServiceCategories(Request $request){
+
+
+        $servoce_cats = TblServiceCategory :: where('department_id',$request->id)->get();
+
+        return $servoce_cats;
     }
 }

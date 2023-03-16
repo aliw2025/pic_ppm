@@ -45,27 +45,58 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {{--  --}}
-                    <tr>
-                        <td>1</td>
-                        <td>Server Installation</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Software Setup</td>
-                        <td></td>
-                    </tr>
+                <tbody id="categories_body">
+                   <td></td>
+                    
                 </tbody>
             </table>
         </div>
     </div>
 <Script>
+    $(document).ready(function(){
 
+        console.log('this is start');
+        console.log($('#sel_dept').val());
+        var depId = $('#sel_dept').val();
+        getServiceCategories(depId);
+    
+    });
+
+    function getServiceCategories(depId){
+
+        $.ajax({
+                url: "{{ route('dept-service-categories') }}",
+                type: "GET",
+                data: {
+                    id: depId,
+                },
+                success: function(dataResult) {
+                    $("#categories_body").empty();
+                    console.log('recv');
+                    console.log(dataResult);
+                    var i;
+                    for (i = 0; i < dataResult.length; i++) {
+                        var item = dataResult[i];
+                        console.log(item);
+                        markup = `<tr> <td>`+i+` </td> <td id = "cusItem` + item.id +`">` + item.service_category_name + `</td> <td></td> </tr>`;
+                        console.log(  $("#categories_body"));
+                        $("#categories_body").append(markup);
+                        
+                    }
+                    
+
+                },
+                error: function(xhr, status, error) {
+                    // $("#customer_name").val("");
+                    // $("#customer_id").val("");
+                },
+            });
+
+    }
     $('#sel_dept').on('change',function(){
             
-            console.log('department is changed');
+        var depId = $('#sel_dept').val();
+        getServiceCategories(depId);
     })
 
 </Script>
