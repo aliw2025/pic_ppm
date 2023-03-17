@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\ServiceCategoryController;
+use App\Http\Controllers\AssetController;
+
 
 
 
@@ -34,7 +36,7 @@ Route::get('/', function () {
 })->name('index');
 Route::get('/admin-panel', [\App\Http\Controllers\Controller::class,'adminPanel'])->name('admin-panel');
 
-Route::get('/add-asset', [\App\Http\Controllers\Controller::class,'addAsset'])->name('add-asset');
+// Route::get('/add-asset', [\App\Http\Controllers\Controller::class,'addAsset'])->name('add-asset');
 Route::get('/add-vendor', [\App\Http\Controllers\Controller::class,'addVendor'])->name('add-vendor');
 Route::get('/add-work-order', [\App\Http\Controllers\Controller::class,'addWorkOrder'])->name('add-work-order');
 Route::get('/vendors', [\App\Http\Controllers\Controller::class,'vendors'])->name('vendors');
@@ -60,6 +62,8 @@ Route::controller(ServiceCategoryController::class)->prefix('service-category')-
 
 Route::resource('department', DepartmentController::class);
 Route::resource('serviceCategory', ServiceCategoryController::class);
+Route::resource('asset', AssetController::class);
+
 
 
 
