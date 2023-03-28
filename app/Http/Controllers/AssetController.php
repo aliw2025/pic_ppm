@@ -48,33 +48,34 @@ class AssetController extends Controller
     {
         //
         $asset = new Asset();
-        $asset->equipment_category_name;
-        $asset->equipment_type;
-        $asset->manufacturer;
-        $asset->model;
-        $asset->serial_number;
-        $asset->fa_number;
-        $asset->equipment_sequence_number;
-        $asset->manufacture_date;
-        $asset->installation_date;
-        $asset->manual_file_path;
-        $asset->room_area;
-        $asset->section;
-        $asset->sub_section;
-        $asset->custodian_name;
-        $asset->office_extention;
-        $asset->mobile;
-        $asset->email;
-        $asset->last_ppm_date;
-        $asset->next_ppm_date;
-        $asset->asset_technical_category;
-        $asset->equipment_status;
-        $asset->vendor;
-        $asset->building_block;
-        $asset->floor;
-        $asset->department;
-        $asset->ppm_type;
-        dd($request->all());
+        $asset->asset_technical_category = $request->asset_tech_cat;
+        $asset->equipment_category_name = $request->equipment_category_name;
+        $asset->equipment_type = $request->equipment_type;
+        $asset->manufacturer=$request->manufacturer;
+        $asset->model = $request->model;
+        $asset->serial_number=$request->serial_number;
+        $asset->fa_number = $request->fa_number;
+        $asset->equipment_sequence_number = $request->equipment_seq_number;
+        $asset->manufacture_date = $request->manufacture_date;
+        $asset->installation_date = $request->installtion_date;
+        $asset->equipment_status = $request->asset_status;
+        // $asset->manual_file_path;
+        $asset->vendor = $request->vendor;
+        $asset->room_area = $request->room_area;
+        $asset->section=$request->section;
+        $asset->sub_section= $request->sub_section;
+        $asset->custodian_name=$request->custodian_name;
+        $asset->office_extention=$request->custodian_ofc_ext;
+        $asset->mobile=$request->custodian_mobile;
+        $asset->email=$request->custodian_email;
+        // $asset->last_ppm_date;
+        // $asset->next_ppm_date;
+        // $asset->building_block = $request->building_block;
+        $asset->floor= $request->floor;
+        $asset->department=$request->deparment;
+        $asset->save();
+        // $asset->ppm_type;
+        return Asset::all();
 
     }
 

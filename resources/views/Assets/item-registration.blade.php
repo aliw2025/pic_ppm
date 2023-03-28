@@ -98,8 +98,8 @@
                          <div class="col-3">
                              <label class="mt-1 form-label">Building Block</label>
                              <select name="building_block" id="" class="form-control">
-                                 <option value="IPD">IPD</option>
-                                 <option value="OPD">OPD</option>
+                                 <option value="">IPD</option>
+                                 <option value="">OPD</option>
 
                              </select>
                          </div>

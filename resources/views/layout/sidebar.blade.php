@@ -53,13 +53,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('vendors') }}" class="nav-link">
+                            <a href="{{ route('vendors-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Vendors</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add-vendor') }}" class="nav-link">
+                            <a href="{{ route('vendors.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Vendor</p>
                             </a>

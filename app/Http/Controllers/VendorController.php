@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vendor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class VendorController extends Controller
 {
@@ -23,9 +24,15 @@ class VendorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        if(isset($request->id)){
+
+            $asset_vendor = Vendor::find($request->id);
+            return view('vendors.add-vendor',compact('asset_vendor'));
+        }
+        
+        return view('vendors.add-vendor');
     }
 
     /**
@@ -36,7 +43,17 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $asset_vendor  = new Vendor();
+        $asset_vendor->vendor_name  = $request->vendor_name;
+        $asset_vendor->save();
+        return view('vendors.add-vendor',compact('asset_vendor'));
+        
+    }
+
+    public function vendorsList(){
+
+        $vendors = Vendor::all();
+        return view('vendors.vendors',compact('vendors'));
     }
 
     /**

@@ -1,33 +1,41 @@
 @extends('layout.header')
 @section('section')
     <div class="">
-
-        {{-- CMMS Software Complete Product Demo (Hippo CMMS) --}}
-
         <div class="row ">
-
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Register Vendor</h4>
+                        @if(isset($asset_vendor))
+                             <h4> {{$asset_vendor->vendor_name}}</h4>
+                          
+                        @else
+                             <h4>Register Vendor</h4>
+                        @endif 
                     </div>
                     <div class="card-body">
+                    @if(!isset($asset_vendor))
+                    <form method="POST" class="form form-vertical" autocomplete="on" action="{{ route('vendors.store') }}">
 
-                        <form class="mx-2" action="">
                             <div class="row">
+                               
                                 <div class="col-3">
+                                    @csrf
                                     <label class="mt-1 form-label">Name</label>
-                                    <input placeholder="Name" type="text" class="form-control">
+                                    <input name="vendor_name" @if(isset($asset_vendor)) value="{{$asset_vendor->vendor_name}}" @endif placeholder="Name" type="text" class="form-control">
                                 </div>
                             </div>
-                            
+                           
+                            <button type="submit" value="submit" class="m-2 mt-2 btn btn-primary"> Save </button>
+                          
                         </form>
+                        @endif
                     </div>
                 </div>
 
             </div>
 
         </div>
+        @if(isset($asset_vendor))
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -49,10 +57,9 @@
                                         <option value="">Technical</option>
                                         <option value="">Support</option>
                                         <option value="">Sales</option>
-
                                     </select>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-1">
                                     <label for="form-label">Designation</label>
                                     <input type="text" class="form-control"  >
                                 </div>
@@ -91,43 +98,7 @@
                                           </tr>
                                         </thead>
                                         <tbody>
-                                          <tr>
-                                            <td>183</td>
-                                            <td>John Doe</td>
-                                            <td>Primary</td>
-                                            <td>Network Engineer</td>
-                                            <td>aliw2025@gmail.com</td>
-                                            <td>091222225</td>
-                                            <td>03400234243</td>
-                                          </tr>
-                                          <tr>
-                                            <td>219</td>
-                                            <td>Alexander Pierce</td>
-                                            <td>Technical</td>
-                                            <td>Support Engineer</td>
-                                            <td>aliw2025@gmail.com</td>
-                                            <td>091222225</td>
-                                            <td>03400234243</td>
-                                          </tr>
-                                          <tr>
-                                            <td>657</td>
-                                            <td>Bob Doe</td>
-                                            <td>Secondary</td>
-                                            <td>IT Technician</td>
-                                            <td>aliw2025@gmail.com</td>
-                                            <td>091222225</td>
-                                            <td>03400234243</td>
-                                          </tr>
-                                          <tr>
-                                            <td>175</td>
-                                            <td>Mike Doe</td>
-                                            <td>Primary</td>
-                                            <td>Technician</td>
-                                            <td>aliw2025@gmail.com</td>
-                                            <td>091222225</td>
-                                            <td>03400234243</td>
-                                          </tr>
-                                           
+                                        
                                         </tbody>
                                     </table>
                                 </div>
@@ -163,6 +134,7 @@
                 </div>
             </div> --}}
         </div>
+        @endif
 
 
     </div>
