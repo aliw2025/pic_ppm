@@ -81,7 +81,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('asset-list')}}" class="nav-link">
+                            <a href="{{route('assets-list')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Assets List</p>
                             </a>
@@ -138,14 +138,12 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        
                         <li class="nav-item">
                             <a href="{{ route('define-sla') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Define SLA</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
                  {{-- <li class="nav-item">
@@ -155,8 +153,6 @@
                          </p>
                      </a>
                  </li> --}}
-                
-
              </ul>
          </nav>
          <!-- /.sidebar-menu -->

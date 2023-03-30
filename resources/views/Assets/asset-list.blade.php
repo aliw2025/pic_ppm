@@ -21,8 +21,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{--  --}}
+                            @php
+                                $count = 1;
+                            @endphp
+                            @foreach($assets as $asset)
                             <tr data-toggle="modal" data-target="#exampleModalCenter">
+                                <td>{{$count}}</td>
+                                <td> {{$asset->equipment_category_name}}</td>
+                                <td>{{$asset->equipment_type}}</td>
+                                <td>{{$asset->manufacturer}}</td>
+                                <td>{{$asset->model}}</td>
+                                <td>{{$asset->serial_number}}</td>
+                                <td>{{$asset->assetTechnicalCategory->name}}</td>
+                                <td>{{$asset->fa_number}}</td>
+                            </tr>
+                            @php
+                                $count = $count +1;
+                            @endphp
+                            @endforeach
+                            <!-- <tr data-toggle="modal" data-target="#exampleModalCenter">
                                 <td>183</td>
                                 <td>Computer</td>
                                 <td>Desktop</td>
@@ -41,7 +58,7 @@
                                 <td>091222225</td>
                                 <td>BME</td>
                                 <td>1234</td>
-                            </tr>
+                            </tr> -->
 
                         </tbody>
                     </table>

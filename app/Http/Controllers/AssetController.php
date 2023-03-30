@@ -23,6 +23,15 @@ class AssetController extends Controller
         //
     }
 
+    
+    public function assetsList(){
+        
+        $assets = Asset::all();
+        
+        return view('Assets.asset-list',compact('assets'));
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
