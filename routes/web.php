@@ -53,7 +53,7 @@ Route::get('/define-sla', [\App\Http\Controllers\Controller::class,'defineSla'])
 
 Route::get('/calender', [\App\Http\Controllers\Controller::class,'calender'])->name('Calender');
 
-// chartOfAccountController
+// chartOfAccountController   
 Route::controller(ServiceCategoryController::class)->prefix('service-category')->group( function () {
 
    Route::get('/department-wise', 'deptServiceCategories')->name('dept-service-categories');

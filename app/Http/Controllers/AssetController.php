@@ -195,6 +195,7 @@ class AssetController extends Controller
         
         }
         
+        
         $asset->save();
 
         $vendors = Vendor::all();
