@@ -39,26 +39,7 @@
                                 $count = $count +1;
                             @endphp
                             @endforeach
-                            <!-- <tr data-toggle="modal" data-target="#exampleModalCenter">
-                                <td>183</td>
-                                <td>Computer</td>
-                                <td>Desktop</td>
-                                <td>Dell</td>
-                                <td>g1277</td>
-                                <td>091222225</td>
-                                <td>BME</td>
-                                <td>1234</td>
-                            </tr>
-                            <tr>
-                                <td>183</td>
-                                <td>Computer</td>
-                                <td>Desktop</td>
-                                <td>Dell</td>
-                                <td>g1277</td>
-                                <td>091222225</td>
-                                <td>BME</td>
-                                <td>1234</td>
-                            </tr> -->
+                           
 
                         </tbody>
                     </table>

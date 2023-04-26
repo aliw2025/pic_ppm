@@ -98,9 +98,9 @@
                          <div class="col-3">
                              <label class="mt-1 form-label">Building Block</label>
                              <select name="building_block" id="" class="form-control">
-                                 <option value="">IPD</option>
-                                 <option value="">OPD</option>
-
+                                @foreach ($blocks as $block)
+                                     <option value="{{ $block->id }}">{{ $block->building_block_name }}</option>
+                                 @endforeach
                              </select>
                          </div>
                          <div class="col-3">

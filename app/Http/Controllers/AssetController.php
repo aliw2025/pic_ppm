@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asset;
 use App\Http\Controllers\Controller;
+use App\Models\TblBuildingBlock;
 use Illuminate\Http\Request;
 use App\Models\TblEquipmentStatus;
 use App\Models\TblFloor;
@@ -43,7 +44,8 @@ class AssetController extends Controller
         $floors = TblFloor::all();
         $eq_status = TblEquipmentStatus::all();
         $departments = TblDepartment::all();
-        return view('Assets.add-asset',compact('eq_status','floors','departments','vendors'));
+        $blocks = TblBuildingBlock::all();
+        return view('Assets.add-asset',compact('eq_status','floors','departments','vendors','blocks'));
 
     }
 
