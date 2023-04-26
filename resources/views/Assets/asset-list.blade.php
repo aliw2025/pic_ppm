@@ -34,6 +34,7 @@
                                 <td>{{$asset->serial_number}}</td>
                                 <td>{{$asset->assetTechnicalCategory->name}}</td>
                                 <td>{{$asset->fa_number}}</td>
+                                <td><a href="{{route('select-asset',$asset->id)}}">select</a></td>
                             </tr>
                             @php
                                 $count = $count +1;

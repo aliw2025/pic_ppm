@@ -45,6 +45,7 @@ class AssetController extends Controller
         $eq_status = TblEquipmentStatus::all();
         $departments = TblDepartment::all();
         $blocks = TblBuildingBlock::all();
+
         return view('Assets.add-asset',compact('eq_status','floors','departments','vendors','blocks'));
 
     }
@@ -68,7 +69,7 @@ class AssetController extends Controller
         $asset->fa_number = $request->fa_number;
         $asset->equipment_sequence_number = $request->equipment_seq_number;
         $asset->manufacture_date = $request->manufacture_date;
-        $asset->installation_date = $request->installtion_date;
+        $asset->installation_date = $request->installation_date;
         $asset->equipment_status = $request->asset_status;
         // $asset->manual_file_path;
         $asset->vendor = $request->vendor;
@@ -81,15 +82,33 @@ class AssetController extends Controller
         $asset->email=$request->custodian_email;
         // $asset->last_ppm_date;
         // $asset->next_ppm_date;
-        // $asset->building_block = $request->building_block;
+        $asset->building_block = $request->building_block;
         $asset->floor= $request->floor;
         $asset->department=$request->deparment;
         $asset->save();
+
+        $vendors = Vendor::all();
+        $floors = TblFloor::all();
+        $eq_status = TblEquipmentStatus::all();
+        $departments = TblDepartment::all();
+        $blocks = TblBuildingBlock::all();
         // $asset->ppm_type;
-        return Asset::all();
+        return view('Assets.add-asset',compact('asset','eq_status','floors','departments','vendors','blocks'));
 
     }
 
+    public function selectAsset($id){
+
+       
+        $vendors = Vendor::all();
+        $floors = TblFloor::all();
+        $eq_status = TblEquipmentStatus::all();
+        $departments = TblDepartment::all();
+        $blocks = TblBuildingBlock::all();
+        $asset = Asset::find($id);
+        // $asset->ppm_type;
+        return view('Assets.add-asset',compact('asset','eq_status','floors','departments','vendors','blocks'));
+    }
     /**
      * Display the specified resource.
      *

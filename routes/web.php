@@ -65,10 +65,11 @@ Route::controller(VendorController::class)->prefix('vendors')->group( function (
    Route::get('/vendors-list', 'vendorsList')->name('vendors-list');
   
 });
-Route::controller(AssetController::class)->prefix('vendors')->group( function () {
+Route::controller(AssetController::class)->prefix('asset')->group( function () {
 
    Route::get('/asset-list', 'assetsList')->name('assets-list');
-  
+   Route::get('/select-asset/{id}', 'selectAsset')->name('select-asset');
+   
 });
 
 
