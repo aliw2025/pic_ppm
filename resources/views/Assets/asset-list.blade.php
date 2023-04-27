@@ -78,12 +78,12 @@
                                 <div class="col-5">
                                     <div  id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                         <ol class="carousel-indicators">
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                            <!-- <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
                                         </ol>
                                         <div class="carousel-inner">
-                                            <div class="carousel-item active">
+                                            <!-- <div class="carousel-item active">
                                                 <img class="d-block w-100" src="resources/img/printer.webp" alt="First slide">
                                             </div>
                                             <div class="carousel-item">
@@ -91,7 +91,7 @@
                                             </div>
                                             <div class="carousel-item">
                                                 <img class="d-block w-100" src="resources/img/printer.webp" alt="First slide">
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                                             data-slide="prev">
@@ -112,10 +112,10 @@
                                     <h5>Equipment Detail</h5>
                                     <div class="row">
                                         <div class="col-6">
-                                            <p style="margin: 0">Name:</p>
+                                            <p style="margin: 0">Eq Category:</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">Computer</p>
+                                            <p id="eq_cat_name" style="margin: 0">Computer</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -303,9 +303,42 @@
                 id: assetId,
             },
             success: function(dataResult) {
-               
-                 console.log('recv');
-                console.log(dataResult);
+                if(dataResult.lenght<1){
+                    return
+
+                }
+                var eq = dataResult[0];
+                // console.log('recv');
+                // console.log(dataResult);
+                $('#eq_cat_name').text(eq.equipment_category_name);
+                
+                var indicators = $('.carousel-indicators');
+                var images = $('.carousel-inner');
+
+                indicators.empty();
+                images.empty();
+                console.log(eq.asset_images.length);
+                for(var i = 0 ; i<eq.asset_images.length;i++){
+                    console.log(eq.asset_images[i]);
+                    if(i==0){
+                        var indicatorMark = `<li class="active" data-target="#carouselExampleIndicators" data-slide-to="`+i+`"></li>`;
+                        var imageMark = `<div class="carousel-item active">
+                                                <img class="d-block w-100" src="`+eq.asset_images[i].image_path+`" alt="First slide">
+                                            </div>`;
+
+                    }else{
+                        var indicatorMark = `<li  data-target="#carouselExampleIndicators" data-slide-to="`+i+`"></li>`;
+
+                        var imageMark = `<div class="carousel-item">
+                                                <img class="d-block w-100" src="`+eq.asset_images[i].image_path+`" alt="First slide">
+                                            </div>`;
+                    }
+                    indicators.append(indicatorMark);
+                    images.append(imageMark);
+                }
+
+                // console.log('waseem is king'+eq.equipment_category_name);
+                // console.log($('#eq_cat_name'));
                 // var tbody = $("#ext_hist_body");
                 // console.log(tbody);
                 // tbody.empty();

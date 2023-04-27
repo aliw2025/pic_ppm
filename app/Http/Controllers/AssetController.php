@@ -12,6 +12,8 @@ use App\Models\TblFloor;
 use App\Models\TblDepartment;
 use App\Models\Vendor;
 use Webmozart\Assert\Assert;
+use Storage;
+
 
 class AssetController extends Controller
 {
@@ -25,13 +27,13 @@ class AssetController extends Controller
         //
     }
 
-    
-    public function assetsList(){
-        
-        $assets = Asset::all();
-        
-        return view('Assets.asset-list',compact('assets'));
 
+    public function assetsList()
+    {
+
+        $assets = Asset::all();
+
+        return view('Assets.asset-list', compact('assets'));
     }
 
     /**
@@ -47,8 +49,7 @@ class AssetController extends Controller
         $departments = TblDepartment::all();
         $blocks = TblBuildingBlock::all();
 
-        return view('Assets.add-asset',compact('eq_status','floors','departments','vendors','blocks'));
-
+        return view('Assets.add-asset', compact('eq_status', 'floors', 'departments', 'vendors', 'blocks'));
     }
 
     /**
@@ -67,9 +68,9 @@ class AssetController extends Controller
         $asset->asset_technical_category = $request->asset_tech_cat;
         $asset->equipment_category_name = $request->equipment_category_name;
         $asset->equipment_type = $request->equipment_type;
-        $asset->manufacturer=$request->manufacturer;
+        $asset->manufacturer = $request->manufacturer;
         $asset->model = $request->model;
-        $asset->serial_number=$request->serial_number;
+        $asset->serial_number = $request->serial_number;
         $asset->fa_number = $request->fa_number;
         $asset->equipment_sequence_number = $request->equipment_seq_number;
         $asset->manufacture_date = $request->manufacture_date;
@@ -78,28 +79,27 @@ class AssetController extends Controller
         // $asset->manual_file_path;
         $asset->vendor = $request->vendor;
         $asset->room_area = $request->room_area;
-        $asset->section=$request->section;
-        $asset->sub_section= $request->sub_section;
-        $asset->custodian_name=$request->custodian_name;
-        $asset->office_extention=$request->custodian_ofc_ext;
-        $asset->mobile=$request->custodian_mobile;
-        $asset->email=$request->custodian_email;
+        $asset->section = $request->section;
+        $asset->sub_section = $request->sub_section;
+        $asset->custodian_name = $request->custodian_name;
+        $asset->office_extention = $request->custodian_ofc_ext;
+        $asset->mobile = $request->custodian_mobile;
+        $asset->email = $request->custodian_email;
         // $asset->last_ppm_date;
         // $asset->next_ppm_date;
         $asset->building_block = $request->building_block;
-        $asset->floor= $request->floor;
-        $asset->department=$request->deparment;
+        $asset->floor = $request->floor;
+        $asset->department = $request->deparment;
 
-        if($request->hasFile('file_name')) {
+        if ($request->hasFile('file_name')) {
             $file = $request->file('file_name');
             // dd($file);s
-            $fileName = $file->getClientOriginalName();   
+            $fileName = $file->getClientOriginalName();
             $filePath = $request->file('file_name')->storeAs('uploads', $fileName, 'public');
             $asset->manual_file_name = $file->getClientOriginalName();
-            $asset->manual_file_path = url('/').'/public/storage/' . $filePath;
-        
+            $asset->manual_file_path = url('/') . '/public/storage/' . $filePath;
         }
-        
+
         $asset->save();
 
         $vendors = Vendor::all();
@@ -108,13 +108,13 @@ class AssetController extends Controller
         $departments = TblDepartment::all();
         $blocks = TblBuildingBlock::all();
         // $asset->ppm_type;
-        return view('Assets.add-asset',compact('asset','eq_status','floors','departments','vendors','blocks'));
-
+        return view('Assets.add-asset', compact('asset', 'eq_status', 'floors', 'departments', 'vendors', 'blocks'));
     }
 
-    public function selectAsset($id){
+    public function selectAsset($id)
+    {
 
-       
+
         $vendors = Vendor::all();
         $floors = TblFloor::all();
         $eq_status = TblEquipmentStatus::all();
@@ -122,7 +122,7 @@ class AssetController extends Controller
         $blocks = TblBuildingBlock::all();
         $asset = Asset::find($id);
         // $asset->ppm_type;
-        return view('Assets.add-asset',compact('asset','eq_status','floors','departments','vendors','blocks'));
+        return view('Assets.add-asset', compact('asset', 'eq_status', 'floors', 'departments', 'vendors', 'blocks'));
     }
     /**
      * Display the specified resource.
@@ -133,8 +133,7 @@ class AssetController extends Controller
     public function show(Asset $asset)
     {
         //
-        return redirect()->route('select-asset',$asset->id);
-        
+        return redirect()->route('select-asset', $asset->id);
     }
 
     /**
@@ -161,9 +160,9 @@ class AssetController extends Controller
         $asset->asset_technical_category = $request->asset_tech_cat;
         $asset->equipment_category_name = $request->equipment_category_name;
         $asset->equipment_type = $request->equipment_type;
-        $asset->manufacturer=$request->manufacturer;
+        $asset->manufacturer = $request->manufacturer;
         $asset->model = $request->model;
-        $asset->serial_number=$request->serial_number;
+        $asset->serial_number = $request->serial_number;
         $asset->fa_number = $request->fa_number;
         $asset->equipment_sequence_number = $request->equipment_seq_number;
         $asset->manufacture_date = $request->manufacture_date;
@@ -172,30 +171,29 @@ class AssetController extends Controller
         // $asset->manual_file_path;
         $asset->vendor = $request->vendor;
         $asset->room_area = $request->room_area;
-        $asset->section=$request->section;
-        $asset->sub_section= $request->sub_section;
-        $asset->custodian_name=$request->custodian_name;
-        $asset->office_extention=$request->custodian_ofc_ext;
-        $asset->mobile=$request->custodian_mobile;
-        $asset->email=$request->custodian_email;
+        $asset->section = $request->section;
+        $asset->sub_section = $request->sub_section;
+        $asset->custodian_name = $request->custodian_name;
+        $asset->office_extention = $request->custodian_ofc_ext;
+        $asset->mobile = $request->custodian_mobile;
+        $asset->email = $request->custodian_email;
         // $asset->last_ppm_date;
         // $asset->next_ppm_date;
         $asset->building_block = $request->building_block;
-        $asset->floor= $request->floor;
-        $asset->department=$request->deparment;
+        $asset->floor = $request->floor;
+        $asset->department = $request->deparment;
 
-        if($request->hasFile('file_name')) {
-            
+        if ($request->hasFile('file_name')) {
+
             $file = $request->file('file_name');
             // dd($file);s
-            $fileName = $file->getClientOriginalName();   
+            $fileName = $file->getClientOriginalName();
             $filePath = $request->file('file_name')->storeAs('uploads', $fileName, 'public');
             $asset->manual_file_name = $file->getClientOriginalName();
-            $asset->manual_file_path = url('/').'/public/storage/' . $filePath;
-        
+            $asset->manual_file_path = url('/') . '/public/storage/' . $filePath;
         }
-        
-        
+
+
         $asset->save();
 
         $vendors = Vendor::all();
@@ -204,38 +202,69 @@ class AssetController extends Controller
         $departments = TblDepartment::all();
         $blocks = TblBuildingBlock::all();
         // $asset->ppm_type;
-        return view('Assets.add-asset',compact('asset','eq_status','floors','departments','vendors','blocks'));
-
-
-    }
- 
-    public function getAssetDetails(Request $request){
-
-        $asset = Asset::find($request->id);
-        return $asset;
-
+        return view('Assets.add-asset', compact('asset', 'eq_status', 'floors', 'departments', 'vendors', 'blocks'));
     }
 
-    public function updateImages(Request $request){
+    public function getAssetDetails(Request $request)
+    {
+
+        // dd($request->all());
+        $asset = Asset::where('id','=',$request->id)->with('assetImages')->get();;
         
+        return $asset;
+    }
+
+    public function updateImages(Request $request)
+    {
+
 
         $asset = Asset::find($request->asset_id);
-        if($request->hasFile('image')) {
-        
+        if ($request->hasFile('image')) {
+
             $file = $request->file('image');
-            $fileName = $file->getClientOriginalName();   
+            $fileName = $file->getClientOriginalName();
             $filePath = $request->file('image')->storeAs('uploads', $fileName, 'public');
             $image = new TblAssetImages();
-            $image->image_path = url('/').'/public/storage/' . $filePath;
+            $image->image_path = url('/') . '/public/storage/' . $filePath;
             $image->image_name =  $file->getClientOriginalName();
             $image->active = 1;
             $image->asset_id = $request->asset_id;
             $image->save();
-           
         }
 
-        return redirect()->route('select-asset',$asset->id);
+        return redirect()->route('select-asset', $asset->id);
+    }
+
+
+    public function deleteImages(Request $request)
+    {
+        // dd($request->all());
+        $image = TblAssetImages::find($request->image_id);
+        // dd($image->image_path);
+
+        if(file_exists(storage_path($image->image_path))){
+            unlink(storage_path($image->image_path));
+          }else{
+            dd('File not found');
+          }
+        // if(Storage::exists($image->image_path)){
+        //     Storage::delete($image->image_path);
+            
+        // }else{
+        //     dd('File does not exist.');
+        // }
+
        
+        $image->delte();
+        return redirect()->route('select-asset', $request->asset_id);
+
+        // if (is_file($file)) {
+           
+        //     // 2. possibility
+        //     unlink(storage_path('app/folder/' . $file));
+        // } else {
+        //     echo "File does not exist";
+        // }
     }
 
     /**

@@ -6,7 +6,7 @@
                  <div class="card-header">
                      <div class="mt-2 d-flex justify-content-between">
                          <h4>Add New Equipment</h4>
-                         <div>
+                         <div class="d-flex">
                              @if (isset($asset))
                              {{ method_field('PUT') }}
                              @endif

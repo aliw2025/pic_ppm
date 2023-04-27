@@ -128,19 +128,12 @@
                 </form>
             </div>
         </div> -->
-        <div>
-            @foreach($asset->assetImages as $image)
-                <div>
-                    <p>{{$image->image_name}}</p>
-                </div>
-            @endforeach
-        </div>
     <form method="POST" enctype="multipart/form-data" class="form form-vertical" autocomplete="on" action="{{ route('update-images') }}">
         @csrf
         <div class="row">
             <input name='asset_id' type="hidden" value="{{$asset->id}}">
             <div class="col-6">
-                <input  name="image" type="file" class="form-control"  accept=".jpg, .jpeg, .png" >
+                <input name="image" type="file" class="form-control" accept=".jpg, .jpeg, .png">
             </div>
             <div class="col-6 mt-1">
                 <button class="btn btn-primary">Add Image</button>
@@ -148,6 +141,41 @@
 
         </div>
     </form>
+    <div class="mt-2">
+
+        @foreach($asset->assetImages as $image)
+        <div class="card">
+            <div class="row mt-2 d-flex align-items-center">
+                <!-- <div class="col-2">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                       Active
+                    </label>
+                   
+                </div> -->
+                <div class="col-4 ">
+
+                    <p class="p-4">{{$image->image_name}}</p>
+                </div>
+                <div class="col-4  mt-2 ">
+                    <img class="img-fluid" src="{{$image->image_path}}" alt="">
+                </div>
+                <div class="col-2 ">
+                <form method="POST" enctype="multipart/form-data" class="form form-vertical" autocomplete="on" action="{{ route('delete-images') }}">
+                        @csrf
+                        <input name="asset_id" type="hidden" value="{{$asset->id}}">
+                        <input name="image_id" type="hidden" value="{{$image->id}}">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                  
+                </div>
+            </div>
+        </div>
+
+
+        @endforeach
+    </div>
+
 
     <div class="row mt-2">
         <div class="col-12">
