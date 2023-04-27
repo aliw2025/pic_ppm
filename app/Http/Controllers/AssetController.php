@@ -218,7 +218,8 @@ class AssetController extends Controller
 
     public function updateImages(Request $request){
         
-        $asset = Asset::where('id',$request->asset_id);
+
+        $asset = Asset::find($request->asset_id);
         if($request->hasFile('image')) {
         
             $file = $request->file('image');

@@ -128,6 +128,13 @@
                 </form>
             </div>
         </div> -->
+        <div>
+            @foreach($asset->assetImages as $image)
+                <div>
+                    <p>{{$image->image_name}}</p>
+                </div>
+            @endforeach
+        </div>
     <form method="POST" enctype="multipart/form-data" class="form form-vertical" autocomplete="on" action="{{ route('update-images') }}">
         @csrf
         <div class="row">

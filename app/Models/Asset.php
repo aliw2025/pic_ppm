@@ -16,4 +16,10 @@ class Asset extends Model
         return $this->hasOne(TblDepartment::class,'id','asset_technical_category');
 
     }
+    public function assetImages(){
+
+        // $this->hasMany()
+        return $this->hasMany(TblAssetImages::class,'asset_id');
+
+    }
 }
