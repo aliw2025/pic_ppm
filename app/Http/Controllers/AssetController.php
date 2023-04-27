@@ -14,7 +14,6 @@ use App\Models\Vendor;
 use Webmozart\Assert\Assert;
 use Storage;
 
-
 class AssetController extends Controller
 {
     /**
@@ -27,13 +26,11 @@ class AssetController extends Controller
         //
     }
 
-
     public function assetsList()
     {
-
         $assets = Asset::all();
-
         return view('Assets.asset-list', compact('assets'));
+
     }
 
     /**
@@ -43,7 +40,7 @@ class AssetController extends Controller
      */
     public function create()
     {
-        $vendors = Vendor::all();
+        $vendors = Vendor::all();   
         $floors = TblFloor::all();
         $eq_status = TblEquipmentStatus::all();
         $departments = TblDepartment::all();
@@ -240,13 +237,13 @@ class AssetController extends Controller
     {
         // dd($request->all());
         $image = TblAssetImages::find($request->image_id);
-        // dd($image->image_path);
+        // // dd($image->image_path);
 
-        if(file_exists(storage_path($image->image_path))){
-            unlink(storage_path($image->image_path));
-          }else{
-            dd('File not found');
-          }
+        // if(file_exists(storage_path($image->image_path))){
+        //     unlink(storage_path($image->image_path));
+        //   }else{
+        //     dd('File not found');
+        //   }
         // if(Storage::exists($image->image_path)){
         //     Storage::delete($image->image_path);
             
@@ -255,7 +252,7 @@ class AssetController extends Controller
         // }
 
        
-        $image->delte();
+        $image->delete();
         return redirect()->route('select-asset', $request->asset_id);
 
         // if (is_file($file)) {

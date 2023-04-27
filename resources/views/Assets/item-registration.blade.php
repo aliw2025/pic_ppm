@@ -87,10 +87,12 @@
                              <input @if(isset($asset)) value="{{$asset->manual_file_name}} @endif name="file_name" placeholder="Attach Manual" type="file" class="form-control">
                          </div>
                          @if(isset($asset))
-                         <div class="col-4">
+                         <div class="col-4 mt-4 ">
+                            <label class="mt-4 form-label"> download maunal : </label>
 
                              <a class="mt-2 " href="{{$asset->manual_file_path}}" download>
-                                 File
+                            <i class="fa fa-download" aria-hidden="true"></i>
+
                              </a>
                          </div>
                          @endif

@@ -1,7 +1,7 @@
 @extends('layout.header')
 @section('section')
 
-<style>
+<!-- <style>
     .imagePreview {
     width: 100%;
     height: 180px;
@@ -51,7 +51,7 @@
   cursor:pointer;
   font-size:15px;
 }
-</style>
+</style> -->
 <div class="row">
     <div class="col-12">
         <div class="col-12 ">

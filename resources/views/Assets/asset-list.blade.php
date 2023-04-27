@@ -34,7 +34,7 @@
                                 <td>{{$asset->serial_number}}</td>
                                 <td>{{$asset->assetTechnicalCategory->name}}</td>
                                 <td>{{$asset->fa_number}}</td>
-                                <td><a href="{{route('select-asset',$asset->id)}}">select</a></td>
+                                <!-- <td><a href="{{route('select-asset',$asset->id)}}">select</a></td> -->
                             </tr>
                             @php
                                 $count = $count +1;
@@ -56,7 +56,8 @@
             <div class="modal-content">
                 <div class=" bg-dark">
                     {{-- class="modal-title text-center" --}}
-                    <h5 class="mt-2 text-center">Equipment Type Name</h5>
+                    <h5 id="main-head" class="mt-2 text-center">Equipment Type Name</h5>
+
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -82,7 +83,7 @@
                                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
                                         </ol>
-                                        <div class="carousel-inner">
+                                        <div style="height: 250px; width:250px" class="carousel-inner">
                                             <!-- <div class="carousel-item active">
                                                 <img class="d-block w-100" src="resources/img/printer.webp" alt="First slide">
                                             </div>
@@ -109,10 +110,13 @@
                             </div>
                             <div class="row mt-2">
                                 <div class="col-6">
-                                    <h5>Equipment Detail</h5>
+                                    <h5>Equipment Details <a id="edit-link" class="bg-dark text-end" href="#">
+                                    <i class="far fa-edit"></i>
+                                    </a>
+                                    </h5>
                                     <div class="row">
                                         <div class="col-6">
-                                            <p style="margin: 0">Eq Category:</p>
+                                            <p style="margin: 0">Category Name:</p>
                                         </div>
                                         <div class="col-6">
                                             <p id="eq_cat_name" style="margin: 0">Computer</p>
@@ -123,15 +127,15 @@
                                             <p style="margin: 0">Type:</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">Desktop</p>
+                                            <p id="eq_type" style="margin: 0">Desktop</p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <p style="margin: 0">Model:</p>
+                                            <p  style="margin: 0">Model:</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">G12</p>
+                                            <p id="eq_model" style="margin: 0">G12</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -139,7 +143,7 @@
                                             <p style="margin: 0">Seriel # :</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">1234</p>
+                                            <p id="eq_seriel" style="margin: 0">1234</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -147,23 +151,16 @@
                                             <p style="margin: 0">Manufacturer :</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">Dell</p>
+                                            <p id="eq_manufacturer" style="margin: 0">Dell</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p style="margin: 0">Model :</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p style="margin: 0">1234</p>
-                                        </div>
-                                    </div>
+                                   
                                     <div class="row">
                                         <div class="col-6">
                                             <p style="margin: 0">FA #:</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">1234</p>
+                                            <p id="eq_fa_number" style="margin: 0">1234</p>
                                         </div>
                                     </div>
 
@@ -172,31 +169,24 @@
                                             <p style="margin: 0">Manufacture Date :</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">1234</p>
+                                            <p id="eq_manufacture_date" style="margin: 0">1234</p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <p style="margin: 0">Manufacture Date :</p>
+                                            <p style="margin: 0">Installation Date :</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">12-Jan-23</p>
+                                            <p id="eq_installation_date" style="margin: 0">12-Jan-23</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p style="margin: 0">Installation Datee :</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p style="margin: 0">12-Jan-23</p>
-                                        </div>
-                                    </div>
+                                   
                                     <div class="row">
                                         <div class="col-6">
                                             <p style="margin: 0">Status :</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">Running</p>
+                                            <p id="eq_status" style="margin: 0">Running</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -204,7 +194,7 @@
                                             <p style="margin: 0">Vendor:</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">Apex</p>
+                                            <p id="eq_vendor" style="margin: 0">Apex</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -212,7 +202,7 @@
                                             <p style="margin: 0">Equipment Sequence #:</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">1234</p>
+                                            <p id="eq_seq_no" style="margin: 0">1234</p>
                                         </div>
                                     </div>
 
@@ -224,7 +214,7 @@
                                             <p style="margin: 0">Building Block:</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">IPD</p>
+                                            <p id="eq_building_block" style="margin: 0">IPD</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -240,39 +230,42 @@
                                             <p style="margin: 0">Department:</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">BME</p>
+                                            <p id="eq_department" style="margin: 0">BME</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p style="margin: 0">Department:</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p style="margin: 0">BME</p>
-                                        </div>
-                                    </div>
+                                  
                                     <div class="row">
                                         <div class="col-6">
                                             <p style="margin: 0">Room / Area:</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">Ward <Dl></Dl></p>
+                                            <p id="eq_room_area" style="margin: 0">Ward </p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p style="margin: 0">Room / Area:</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p style="margin: 0">Ward <Dl></Dl></p>
-                                        </div>
-                                    </div>
+                                  
                                     <div class="row">
                                         <div class="col-6">
                                             <p style="margin: 0">Section:</p>
                                         </div>
                                         <div class="col-6">
-                                            <p style="margin: 0">Surgical</p>
+                                            <p id="eq_section" style="margin: 0">Surgical</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Sub Section:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p id="eq_sub_section" style="margin: 0">Surgical</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="margin: 0">Manual:</p>
+                                        </div>
+                                        <div class="col-6">
+                                           <a id="eq_manual" href="#"><i class="fa fa-download" aria-hidden="true"></i></a> 
+
                                         </div>
                                     </div>
                                 </div>
@@ -311,7 +304,30 @@
                 // console.log('recv');
                 // console.log(dataResult);
                 $('#eq_cat_name').text(eq.equipment_category_name);
+                $('#main-head').text(eq.equipment_type+' '+eq.model);
+                $('#eq_type').text(eq.equipment_type);
+                $('#eq_manufacturer').text(eq.manufacturer);
+                $('#eq_model').text(eq.model);
+                $('#eq_serial_number').text(eq.serial_number);
+                $('#eq_fa_number').text(eq.fa_number);
+                $('#eq_seq_number').text(eq.equipment_sequence_number);
+                $('#eq_manufacture_date').text(eq.manufacture_date);
+                $('#eq_installation_date').text(eq.installation_date);
+                $('#eq_room_area').text(eq.room_area);
+                $('#eq_section').text(eq.section);
+                $('#eq_sub_section').text(eq.sub_section);
+                $('#eq_custodian_name').text(eq.custodian_name);
+                $('#eq_vendor').text(eq.vendor);
+                $('#eq_manual').prop('href',eq.manual_file_path);
+                $('#edit-link').prop('href',"{{url('asset/select-asset')}}/"+eq.id);
+
                 
+                
+                
+
+
+               
+               
                 var indicators = $('.carousel-indicators');
                 var images = $('.carousel-inner');
 
