@@ -25,7 +25,7 @@
                                 $count = 1;
                             @endphp
                             @foreach($assets as $asset)
-                            <tr data-toggle="modal" data-target="#exampleModalCenter">
+                            <tr class="asset-row" data-id='{{$asset->id}}'  data-toggle="modal" data-target="#exampleModalCenter">
                                 <td>{{$count}}</td>
                                 <td> {{$asset->equipment_category_name}}</td>
                                 <td>{{$asset->equipment_type}}</td>
@@ -290,4 +290,50 @@
             </div>
         </div>
     </div>
+    <script>
+        
+        $(document).on("click", ".asset-row", function() {
+
+
+            var assetId = $(this).data('id');
+            $.ajax({
+            url: "{{ route('get-asset-details') }}",
+            type: "GET",
+            data: { 
+                id: assetId,
+            },
+            success: function(dataResult) {
+               
+                 console.log('recv');
+                console.log(dataResult);
+                // var tbody = $("#ext_hist_body");
+                // console.log(tbody);
+                // tbody.empty();
+                // var i;
+                // for (i = 0; i < dataResult.length; i++) {
+                //     var item = dataResult[i];
+                //     console.log(item);
+                //     var count = i+1;
+                //     var date = Date.parse(item.previous_date);
+                //     var markup = `<tr>
+                //                         <td>`+count +` </td>
+                //                         <td>`+date+` </td>
+                //                         <td>`+ item.current_date+`</td>
+                //                         <td>`+ item.note+`</td>
+                //                   </tr>`;
+                   
+                // }
+              
+
+            },
+            error: function(xhr, status, error) {
+                
+            },
+        });
+
+
+
+    });
+        
+    </script>
 @endsection

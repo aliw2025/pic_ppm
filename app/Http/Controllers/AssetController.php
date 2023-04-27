@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asset;
 use App\Http\Controllers\Controller;
+use App\Models\TblAssetImages;
 use App\Models\TblBuildingBlock;
 use Illuminate\Http\Request;
 use App\Models\TblEquipmentStatus;
@@ -132,7 +133,6 @@ class AssetController extends Controller
     public function show(Asset $asset)
     {
         //
-
         return redirect()->route('select-asset',$asset->id);
         
     }
@@ -207,6 +207,34 @@ class AssetController extends Controller
         return view('Assets.add-asset',compact('asset','eq_status','floors','departments','vendors','blocks'));
 
 
+    }
+ 
+    public function getAssetDetails(Request $request){
+
+        $asset = Asset::find($request->id);
+        return $asset;
+
+    }
+
+    public function updateImages(Request $request){
+        
+        $asset = Asset::where('id',$request->asset_id);
+        if($request->hasFile('image')) {
+        
+            $file = $request->file('image');
+            $fileName = $file->getClientOriginalName();   
+            $filePath = $request->file('image')->storeAs('uploads', $fileName, 'public');
+            $image = new TblAssetImages();
+            $image->image_path = url('/').'/public/storage/' . $filePath;
+            $image->image_name =  $file->getClientOriginalName();
+            $image->active = 1;
+            $image->asset_id = $request->asset_id;
+            $image->save();
+           
+        }
+
+        return redirect()->route('select-asset',$asset->id);
+       
     }
 
     /**
