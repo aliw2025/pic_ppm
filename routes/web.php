@@ -63,6 +63,8 @@ Route::controller(ServiceCategoryController::class)->prefix('service-category')-
 Route::controller(VendorController::class)->prefix('vendors')->group( function () {
 
    Route::get('/vendors-list', 'vendorsList')->name('vendors-list');
+   Route::post('/store-contact-person', 'storeContactPerson')->name('store-contact-person');
+
   
 });
 
