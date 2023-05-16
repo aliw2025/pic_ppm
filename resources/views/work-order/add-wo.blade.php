@@ -30,27 +30,28 @@
                                             <div class="col-6 mt-1">
                                                 <label for="form-label">Request Type</label>
                                                 <select name="" id="" class="form-control">
-                                                    <option value="PPM">PM</option>
-                                                    <option value="PPM">Complaint</option>
-                                                    <option value="PPM">Incedent</option>
-                                                    <option value="PPM">Self Assigned Task</option>
-                                                    <option value="PPM">Task Assigned by senior</option>
-                                                    <option value="PPM">Request for Information</option>
+                                                    @If(isset($requestTypes))
+                                                        @foreach($requestTypes as $rt)
+                                                            <option value="{{$rt->id}}">{{$rt->name}}</option>
+                                                        @endforeach
+                                                    @endif
+                                                  
                                                 </select>
                                             </div>
                                             <div class="col-6 mt-1">
                                                 <label for="">Deparment</label>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">BME</option>
-                                                    <option value="">ICT</option>
+                                                <select name="" id="dept" class="form-control">
+                                                @If(isset($departments))
+                                                        @foreach($departments as $dep)
+                                                            <option value="{{$dep->id}}">{{$dep->name}}</option>
+                                                        @endforeach
+                                                    @endif
                                                 </select>
                                             </div>
                                             <div class="col-6 mt-1">
                                                 <label for="">Category</label>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">PC Deployement</option>
-                                                    <option value="">Server Maintainence</option>
-                                                    <option value="">Window Installation</option>
+                                                <select  name="" id="cat_body" class="form-control">
+                                                   
                                                 </select>
                                             </div>
                                             <div class="col-6 mt-1">
@@ -143,6 +144,7 @@
                     </form>
 
                 </div>
+                @if(isset($workOrder))
                 <div class="card  card-tabs">
                     <div class="card-header p-0 pt-1">
                         <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
@@ -184,6 +186,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>
@@ -196,7 +199,50 @@
                 $('#down-icon').removeClass('fa-angle-up').addClass('fa-angle-down');
             }
 
+
         }
+        $(document).on('change','#dept',function(){
+
+            var id = $(this).val();
+            console.log(id);
+            getServiceCategory(id);
+           
+            
+        });
+
+        function getServiceCategory(id){
+
+            $.ajax({
+                url: "{{ route('dept-service-categories')}}",
+                type: "GET",
+                data: {
+                    id: id,
+                },
+                success: function(dataResult) {
+                    $("#cat_body").empty();
+                    console.log('recv');
+                    console.log(dataResult);
+                    var i;
+                    for (i = 0; i < dataResult.length; i++) {
+                        var item = dataResult[i];
+                        console.log(item);
+                        markup = `<option value='`+item.id+`' >`+item.service_category_name+` <option/>`;
+                        $("#cat_body").append(markup);
+                    }
+                    // $("#customer_name").val(dataResult.customer_name);
+                },
+                error: function(xhr, status, error) {
+                    // $("#customer_name").val("");
+                    // $("#customer_id").val("");
+                },
+            });
+        }
+        
+        $(document).ready(function(){
+            var id = $('#dept').val();
+            getServiceCategory(id);
+
+        });
 
        
     </script>

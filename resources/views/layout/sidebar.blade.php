@@ -99,7 +99,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('add-work-order') }}" class="nav-link">
+                            <a href="{{ route('workOrder.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>  Add Work Order</p>
                             </a>

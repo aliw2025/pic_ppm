@@ -6,10 +6,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\VendorController;
-
-
-
-
+use App\Http\Controllers\WorkOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,11 +70,9 @@ Route::controller(AssetController::class)->prefix('asset')->group( function () {
    Route::get('/get-asset-details', 'getAssetDetails')->name('get-asset-details');
    Route::post('/update-images', 'updateImages')->name('update-images');
    Route::post('/delete-images', 'deleteImages')->name('delete-images');
-
-   //
- 
-   
+  
 });
+
 
 
 
@@ -86,6 +81,8 @@ Route::resource('department', DepartmentController::class);
 Route::resource('serviceCategory', ServiceCategoryController::class);
 Route::resource('asset', AssetController::class);
 Route::resource('vendors', VendorController::class);
+Route::resource('workOrder', WorkOrderController::class);
+
 
 
 
