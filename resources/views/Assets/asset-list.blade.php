@@ -264,7 +264,7 @@
                                             <p style="margin: 0">Manual:</p>
                                         </div>
                                         <div class="col-6">
-                                           <a id="eq_manual" href="#"><i class="fa fa-download" aria-hidden="true"></i></a> 
+                                           <a download id="eq_manual" href="#"><i class="fa fa-download" aria-hidden="true"></i></a> 
 
                                         </div>
                                     </div>
