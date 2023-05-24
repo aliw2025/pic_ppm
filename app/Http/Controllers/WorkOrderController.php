@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\TblDepartment;
+use App\Models\TblPriority;
 use App\Models\TblRequestType;
+use App\Models\TblWoParty;
+use App\Models\TblWorkOrderStatus;
 use App\Models\WorkOrder;
 use Illuminate\Http\Request;
 
@@ -17,6 +20,7 @@ class WorkOrderController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -28,8 +32,10 @@ class WorkOrderController extends Controller
     {
         $requestTypes = TblRequestType::all();
         $departments = TblDepartment::all();
-        
-        return view('work-order.add-wo',compact('requestTypes','departments'));
+        $woStatuses = TblWorkOrderStatus::all();
+        $priorities = TblPriority::all();
+        $party_type = TblWoParty::all();        
+        return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type'));
 
     }
     

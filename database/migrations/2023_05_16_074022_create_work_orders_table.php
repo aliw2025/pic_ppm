@@ -15,6 +15,26 @@ class CreateWorkOrdersTable extends Migration
     {
         Schema::create('work_orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('request_type_id')->nullable();
+            $table->unsignedBigInteger('department_id')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('asset_id')->nullable();
+            $table->unsignedBigInteger('priority_id')->nullable();
+            $table->date('due_date')->nullable();
+            $table->date('completion_date')->nullable();
+            $table->date('due_date')->nullable();
+            $table->unsignedBigInteger('status_id')->nullable();
+            $table->unsignedBigInteger('party_type_id')->nullable();
+            $table->unsignedBigInteger('vendor_id')->nullable();
+            $table->unsignedBigInteger('tech_id')->nullable();
+            $table->unsignedBigInteger('parent_id')->nullable();
+
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('resolution')->nullable();
+
+
+
             $table->timestamps();
         });
     }
