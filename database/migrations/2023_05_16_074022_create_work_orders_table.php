@@ -22,7 +22,7 @@ class CreateWorkOrdersTable extends Migration
             $table->unsignedBigInteger('priority_id')->nullable();
             $table->date('due_date')->nullable();
             $table->date('completion_date')->nullable();
-            $table->date('due_date')->nullable();
+            $table->date('resolution_date')->nullable();
             $table->unsignedBigInteger('status_id')->nullable();
             $table->unsignedBigInteger('party_type_id')->nullable();
             $table->unsignedBigInteger('vendor_id')->nullable();
