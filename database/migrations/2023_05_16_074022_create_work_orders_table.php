@@ -30,8 +30,8 @@ class CreateWorkOrdersTable extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
 
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
-            $table->string('resolution')->nullable();
+            $table->longText('description')->nullable();
+            $table->longText('resolution')->nullable();
 
 
 
