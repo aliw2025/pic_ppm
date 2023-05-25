@@ -48,7 +48,36 @@ class WorkOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        // dd($request->all());
+
+        $workOrder = new WorkOrder();
+        $workOrder->request_type_id = $request->request_type_id;
+        $workOrder->department_id = $request->department_id;
+        $workOrder->category_id = $request->category_id;
+        $workOrder->asset_id = $request->asset_id;
+        $workOrder->priority_id = $request->priority_id;
+        $workOrder->due_date = $request->due_date;
+        $workOrder->completion_date = $request->completion_date;
+        $workOrder->resolution_date = $request->resolution_date;
+        $workOrder->status_id = $request->status_id;
+        $workOrder->party_type_id = $request->party_type_id;
+        $workOrder->vendor_id = $request->vendor_id;
+        $workOrder->tech_id = $request->tech_id;
+        $workOrder->parent_id = $request->parent_id;
+        $workOrder->title = $request->title;
+        $workOrder->description = $request->description;
+        $workOrder->title = $request->title;
+        $workOrder->save(); 
+
+
+
+        $requestTypes = TblRequestType::all();
+        $departments = TblDepartment::all();
+        $woStatuses = TblWorkOrderStatus::all();
+        $priorities = TblPriority::all();
+        $party_type = TblWoParty::all();        
+        return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type','workOrder'));
     }
 
     /**

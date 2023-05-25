@@ -19,26 +19,27 @@
                 </div>
             </div>
             <div id="collapseTwo" class=" card-body collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <form action="">
+                <form method="POST" action="{{isset($workOrder)? route('workOrder.update',$workOrder->id):route('workOrder.store')}}">
                     <div class="row">
                         <div class="col-6">
                             <div class="">
+                                @csrf
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-6 mt-1">
                                             <label for="form-label">Request Type</label>
-                                            <select name="" id="" class="form-control">
+                                            <select name="request_type" id="" class="form-control">
                                                 @If(isset($requestTypes))
-                                                @foreach($requestTypes as $rt)
-                                                <option value="{{$rt->id}}">{{$rt->name}}</option>
-                                                @endforeach
+                                                    @foreach($requestTypes as $rt)
+                                                    <option @if(isset($workOrder)) @if($workOrder->request_type==$rt->id) @endif @endif value="{{$rt->id}}">{{$rt->name}}</option>
+                                                    @endforeach
                                                 @endif
 
                                             </select>
                                         </div>
                                         <div class="col-6 mt-1">
                                             <label for="">Deparment</label>
-                                            <select name="" id="dept" class="form-control">
+                                            <select name="department_id" id="dept" class="form-control">
                                                 @If(isset($departments))
                                                 @foreach($departments as $dep)
                                                 <option value="{{$dep->id}}">{{$dep->name}}</option>
@@ -48,17 +49,17 @@
                                         </div>
                                         <div class="col-6 mt-1">
                                             <label for="">Category</label>
-                                            <select name="" id="cat_body" class="form-control">
+                                            <select name="category_id" id="cat_body" class="form-control">
 
                                             </select>
                                         </div>
                                         <div class="col-6 mt-1">
                                             <label for="">Asset</label>
-                                            <input type="text" class="form-control">
+                                            <input name="asset_id" type="text" class="form-control">
                                         </div>
                                         <div class="col-6 mt-1">
                                             <label for="">Priority</label>
-                                            <select name="" id="" class="form-control">
+                                            <select name="priority_id" id="" class="form-control">
                                                 @foreach($priorities as $pt)
                                                 <option value="{{$pt->id}}">{{$pt->priority}}</option>
                                                 @endforeach
@@ -77,11 +78,11 @@
                                     <div class="row">
                                         <div class="col-6 mt-1">
                                             <label for="">Due Date</label>
-                                            <input type="date" class="form-control">
+                                            <input name="due_date" type="date" class="form-control">
                                         </div>
                                         <div class="col-6 mt-1">
                                             <label for="">Status</label>
-                                            <select name="" id="" class="form-control">
+                                            <select name="status_id" id="" class="form-control">
 
                                                 @foreach($woStatuses as $st)
                                                 <option value="{{$st->id}}">{{$st->name}}</option>
@@ -91,7 +92,7 @@
                                         </div>
                                         <div class="col-6 mt-1">
                                             <label for="">Completion Date</label>
-                                            <input type="date" class="form-control">
+                                            <input name="completion_date" type="date" class="form-control">
                                         </div>
                                         <div class="col-6 mt-1">
                                             <label for="">Assigned to</label>
@@ -105,11 +106,11 @@
                                         </div>
                                         <div id='vendor_div' class="col-6 mt-1">
                                             <label for="">Vendor </label>
-                                            <input type="text" class="form-control">
+                                            <input name="vendor_id" type="text" class="form-control">
                                         </div>
                                         <div id='tech_div' class="col-6 mt-1">
                                             <label for="">Technician</label>
-                                            <input type="text" class="form-control">
+                                            <input name="tech_id" type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -121,13 +122,13 @@
                         <div class="col-3">
                             <div class="card-body">
                                 <label for="">Title</label>
-                                <input type="text" class="form-control" name="" id="" placeholder="Title">
+                                <input name="title" type="text" class="form-control" name="" id="" placeholder="Title">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="card-body">
                                 <label for="">Description</label>
-                                <div style="min-height: " id="summernote"></div>
+                                <div name="description" id="summernote"></div>
                             </div>
                         </div>
 
