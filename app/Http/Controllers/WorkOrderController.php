@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
 use App\Models\TblDepartment;
 use App\Models\TblPriority;
 use App\Models\TblRequestType;
+use App\Models\TblServiceCategory;
 use App\Models\TblWoParty;
 use App\Models\TblWorkOrderStatus;
 use App\Models\User;
@@ -76,13 +78,15 @@ class WorkOrderController extends Controller
 
         return redirect()->route('workOrder.show',$workOrder);
 
-        $requestTypes = TblRequestType::all();
-        $departments = TblDepartment::all();
-        $woStatuses = TblWorkOrderStatus::all();
-        $priorities = TblPriority::all();
-        $party_type = TblWoParty::all(); 
+        // $requestTypes = TblRequestType::all();
+        // $departments = TblDepartment::all();
+        // $woStatuses = TblWorkOrderStatus::all();
+        // $priorities = TblPriority::all();
+        // $party_type = TblWoParty::all(); 
+        // $vendors = Vendor::all();     
+        // $users = User::all(); 
 
-        return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type','workOrder'));
+        // return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type','workOrder'));
     }
 
     /**
@@ -97,8 +101,12 @@ class WorkOrderController extends Controller
         $departments = TblDepartment::all();
         $woStatuses = TblWorkOrderStatus::all();
         $priorities = TblPriority::all();
-        $party_type = TblWoParty::all();        
-        return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type','workOrder'));
+        $party_type = TblWoParty::all();  
+        $vendors = Vendor::all();     
+        $users = User::all();       
+        $cats = TblServiceCategory::where('department_id',$workOrder->department_id)->get();
+        $assets = Asset::where('asset_technical_category',$workOrder->department_id)->get();
+        return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type','workOrder','vendors','users','cats','assets'));
     }
 
     /**
@@ -141,11 +149,11 @@ class WorkOrderController extends Controller
         $workOrder->save(); 
 
 
-        $requestTypes = TblRequestType::all();
-        $departments = TblDepartment::all();
-        $woStatuses = TblWorkOrderStatus::all();
-        $priorities = TblPriority::all();
-        $party_type = TblWoParty::all();        
+        // $requestTypes = TblRequestType::all();
+        // $departments = TblDepartment::all();
+        // $woStatuses = TblWorkOrderStatus::all();
+        // $priorities = TblPriority::all();
+        // $party_type = TblWoParty::all();        
         return redirect()->route('workOrder.show',$workOrder);
     }
 

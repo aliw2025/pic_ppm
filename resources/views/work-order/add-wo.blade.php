@@ -36,9 +36,9 @@
                                             <label for="form-label">Request Type</label>
                                             <select name="request_type_id" id="" class="form-control">
                                                 @If(isset($requestTypes))
-                                                @foreach($requestTypes as $rt)
-                                                <option @if(isset($workOrder)) @if($workOrder->request_type==$rt->id) @endif @endif value="{{$rt->id}}">{{$rt->name}}</option>
-                                                @endforeach
+                                                    @foreach($requestTypes as $rt)
+                                                    <option @if(isset($workOrder)) @if($workOrder->request_type==$rt->id) @endif @endif value="{{$rt->id}}">{{$rt->name}}</option>
+                                                    @endforeach
                                                 @endif
 
                                             </select>
@@ -48,7 +48,7 @@
                                             <select name="department_id" id="dept" class="form-control">
                                                 @If(isset($departments))
                                                 @foreach($departments as $dep)
-                                                <option value="{{$dep->id}}">{{$dep->name}}</option>
+                                                <option @if(isset($workOrder)) @if($workOrder->department_id==$dep->id) selected @endif @endif value="{{$dep->id}}">{{$dep->name}}</option>
                                                 @endforeach
                                                 @endif
                                             </select>
@@ -69,7 +69,7 @@
                                             <label for="">Priority</label>
                                             <select name="priority_id" id="" class="form-control">
                                                 @foreach($priorities as $pt)
-                                                <option value="{{$pt->id}}">{{$pt->priority}}</option>
+                                                    <option  @if(isset($workOrder)) @if($workOrder->priority_id==$pt->id) selected @endif @endif value="{{$pt->id}}">{{$pt->priority}}</option>
                                                 @endforeach
 
                                             </select>
@@ -93,7 +93,7 @@
                                             <select name="status_id" id="" class="form-control">
 
                                                 @foreach($woStatuses as $st)
-                                                <option value="{{$st->id}}">{{$st->name}}</option>
+                                                    <option @if(isset($workOrder)) @if($workOrder->status_id==$st->id) selected @endif @endif  value="{{$st->id}}">{{$st->name}}</option>
                                                 @endforeach
 
                                             </select>
@@ -106,7 +106,7 @@
                                             <label for="">Assigned to</label>
                                             <select name="party_type_id" id="party" class="form-control">
                                                 @foreach($party_type as $pt)
-                                                <option value="{{$pt->id}}">{{$pt->name}}</option>
+                                                    <option @if(isset($workOrder)) @if($workOrder->party_type_id==$pt->id) selected @endif @endif  value="{{$pt->id}}">{{$pt->name}}</option>
                                                 @endforeach
 
 
@@ -116,7 +116,7 @@
                                             <label for="">Vendor </label>
                                             <select name="vendor_id" id="vendor_id" class="form-control">
                                                 @foreach($vendors as $ven)
-                                                <option value="{{$ven->id}}">{{$ven->vendor_name}}</option>
+                                                <option @if(isset($workOrder)) @if($workOrder->vendor_id==$ven->id) selected @endif @endif value="{{$ven->id}}">{{$ven->vendor_name}}</option>
                                                 @endforeach
 
 
@@ -127,7 +127,7 @@
                                             <label for="">Technician</label>
                                             <select name="tech_id" id="tech_id" class="form-control">
                                                 @foreach($users as $user)
-                                                <option value="{{$user->id}}">{{$user->name}}</option>
+                                                <option @if(isset($workOrder)) @if($workOrder->tech_id==$user->id) selected @endif @endif value="{{$user->id}}">{{$user->name}}</option>
                                                 @endforeach
 
 
@@ -223,21 +223,30 @@
 
     $(document).on('change', '#party', function() {
 
+        var val = $(this).val();
         console.log($(this).val());
-        if ($(this).val() == 1) {
+        changeParty(val);
 
-            $('#vendor_div').hide();
-            $('#tech_div').show();
-            console.log('self');
-        } else {
-            $('#tech_div').hide();
-            $('#vendor_div').show();
-            console.log('vendor');
-        }
 
 
     });
 
+    function changeParty(val) {
+        console.log("dffd:"+val);
+        if (val == 1) {
+            
+            $('#vendor_div').hide();
+            $('#tech_div').show();
+            
+            console.log('self');
+        } else {
+            $('#tech_div').hide();
+            $('#vendor_div').show();
+
+            
+            console.log('vendor');
+        }
+    }
 
     $(document).on('change', '#dept', function() {
 
@@ -270,7 +279,7 @@
                         value: item.id,
                         text: item.equipment_category_name
                     }));
-                    
+
                 }
                 // $("#customer_name").val(dataResult.customer_name);
             },
@@ -298,9 +307,9 @@
                     var item = dataResult[i];
                     $('#cat_body').append($('<option>', {
                         value: item.id,
-                        text:item.service_category_name
+                        text: item.service_category_name
                     }));
-                   
+
                 }
                 // $("#customer_name").val(dataResult.customer_name);
             },
@@ -313,6 +322,8 @@
 
     $(document).ready(function() {
         var id = $('#dept').val();
+        var val = $('#party').val();
+        changeParty(val);
         getServiceCategory(id);
         getAssets(id);
 
