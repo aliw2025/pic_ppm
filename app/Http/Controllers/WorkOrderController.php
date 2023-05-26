@@ -7,6 +7,8 @@ use App\Models\TblPriority;
 use App\Models\TblRequestType;
 use App\Models\TblWoParty;
 use App\Models\TblWorkOrderStatus;
+use App\Models\User;
+use App\Models\Vendor;
 use App\Models\WorkOrder;
 use Illuminate\Http\Request;
 
@@ -34,8 +36,10 @@ class WorkOrderController extends Controller
         $departments = TblDepartment::all();
         $woStatuses = TblWorkOrderStatus::all();
         $priorities = TblPriority::all();
-        $party_type = TblWoParty::all();        
-        return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type'));
+        $party_type = TblWoParty::all();  
+        $vendors = Vendor::all();     
+        $users = User::all(); 
+        return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type','vendors','users'));
 
     }
     
@@ -76,7 +80,8 @@ class WorkOrderController extends Controller
         $departments = TblDepartment::all();
         $woStatuses = TblWorkOrderStatus::all();
         $priorities = TblPriority::all();
-        $party_type = TblWoParty::all();        
+        $party_type = TblWoParty::all(); 
+
         return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type','workOrder'));
     }
 

@@ -27,7 +27,7 @@
 
                                 @if(isset($workOrder))
 
-                                    @method('put');
+                                @method('put');
 
                                 @endif
                                 <div class="card-body">
@@ -36,9 +36,9 @@
                                             <label for="form-label">Request Type</label>
                                             <select name="request_type_id" id="" class="form-control">
                                                 @If(isset($requestTypes))
-                                                    @foreach($requestTypes as $rt)
-                                                    <option @if(isset($workOrder)) @if($workOrder->request_type==$rt->id) @endif @endif value="{{$rt->id}}">{{$rt->name}}</option>
-                                                    @endforeach
+                                                @foreach($requestTypes as $rt)
+                                                <option @if(isset($workOrder)) @if($workOrder->request_type==$rt->id) @endif @endif value="{{$rt->id}}">{{$rt->name}}</option>
+                                                @endforeach
                                                 @endif
 
                                             </select>
@@ -61,7 +61,9 @@
                                         </div>
                                         <div class="col-6 mt-1">
                                             <label for="">Asset</label>
-                                            <input name="asset_id" type="text" class="form-control">
+                                            <select name="asset_id" id="asset_body" class="form-control">
+
+                                            </select>
                                         </div>
                                         <div class="col-6 mt-1">
                                             <label for="">Priority</label>
@@ -112,11 +114,25 @@
                                         </div>
                                         <div id='vendor_div' class="col-6 mt-1">
                                             <label for="">Vendor </label>
-                                            <input name="vendor_id" type="text" class="form-control">
+                                            <select name="vendor_id" id="vendor_id" class="form-control">
+                                                @foreach($vendors as $ven)
+                                                <option value="{{$ven->id}}">{{$ven->vendor_name}}</option>
+                                                @endforeach
+
+
+                                            </select>
+                                            <!-- <input name="vendor_id" type="text" class="form-control"> -->
                                         </div>
                                         <div id='tech_div' class="col-6 mt-1">
                                             <label for="">Technician</label>
-                                            <input name="tech_id" type="text" class="form-control">
+                                            <select name="tech_id" id="tech_id" class="form-control">
+                                                @foreach($users as $user)
+                                                <option value="{{$user->id}}">{{$user->name}}</option>
+                                                @endforeach
+
+
+                                            </select>
+                                            <!-- <input name="tech_id" type="text" class="form-control"> -->
                                         </div>
                                     </div>
                                 </div>
@@ -203,22 +219,22 @@
 
 
     }
-    
-    
-    $(document).on('change','#party',function(){
-        
+
+
+    $(document).on('change', '#party', function() {
+
         console.log($(this).val());
-        if($(this).val()==1){
+        if ($(this).val() == 1) {
 
             $('#vendor_div').hide();
             $('#tech_div').show();
             console.log('self');
-        }else{
+        } else {
             $('#tech_div').hide();
             $('#vendor_div').show();
             console.log('vendor');
         }
-        
+
 
     });
 
@@ -228,9 +244,42 @@
         var id = $(this).val();
         console.log(id);
         getServiceCategory(id);
+        getAssets(id);
 
 
     });
+
+    function getAssets(id) {
+
+        $.ajax({
+            url: "{{ route('get-dept-assets')}}",
+            type: "GET",
+            data: {
+                id: id,
+            },
+            success: function(dataResult) {
+                $("#asset_body").empty();
+                // console.log('recv');
+                // console.log(dataResult);
+                var i;
+                for (i = 0; i < dataResult.length; i++) {
+                    var item = dataResult[i];
+                    // console.log(item);
+
+                    $('#asset_body').append($('<option>', {
+                        value: item.id,
+                        text: item.equipment_category_name
+                    }));
+                    
+                }
+                // $("#customer_name").val(dataResult.customer_name);
+            },
+            error: function(xhr, status, error) {
+                // $("#customer_name").val("");
+                // $("#customer_id").val("");
+            },
+        });
+    }
 
     function getServiceCategory(id) {
 
@@ -242,14 +291,16 @@
             },
             success: function(dataResult) {
                 $("#cat_body").empty();
-                console.log('recv');
-                console.log(dataResult);
+                // console.log('recv');
+                // console.log(dataResult);
                 var i;
                 for (i = 0; i < dataResult.length; i++) {
                     var item = dataResult[i];
-                    console.log(item);
-                    markup = `<option value='` + item.id + `' >` + item.service_category_name + ` <option/>`;
-                    $("#cat_body").append(markup);
+                    $('#cat_body').append($('<option>', {
+                        value: item.id,
+                        text:item.service_category_name
+                    }));
+                   
                 }
                 // $("#customer_name").val(dataResult.customer_name);
             },
@@ -263,6 +314,8 @@
     $(document).ready(function() {
         var id = $('#dept').val();
         getServiceCategory(id);
+        getAssets(id);
+
 
     });
 </script>

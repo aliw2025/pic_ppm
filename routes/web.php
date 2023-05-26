@@ -72,6 +72,8 @@ Route::controller(AssetController::class)->prefix('asset')->group( function () {
    Route::get('/get-asset-details', 'getAssetDetails')->name('get-asset-details');
    Route::post('/update-images', 'updateImages')->name('update-images');
    Route::post('/delete-images', 'deleteImages')->name('delete-images');
+   Route::get('/get-dept-assets', 'getDeptAssets')->name('get-dept-assets');
+
   
 });
 

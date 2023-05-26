@@ -33,6 +33,12 @@ class AssetController extends Controller
 
     }
 
+    public function getDeptAssets(Request $request){
+
+        $assets = Asset::where('asset_technical_category',$request->id)->get();
+
+        return $assets;
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -40,13 +46,14 @@ class AssetController extends Controller
      */
     public function create()
     {
+        $users = User::all();
         $vendors = Vendor::all();   
         $floors = TblFloor::all();
         $eq_status = TblEquipmentStatus::all();
         $departments = TblDepartment::all();
         $blocks = TblBuildingBlock::all();
 
-        return view('Assets.add-asset', compact('eq_status', 'floors', 'departments', 'vendors', 'blocks'));
+        return view('Assets.add-asset', compact('eq_status', 'floors', 'departments', 'vendors', 'blocks','users'));
     }
 
     /**
