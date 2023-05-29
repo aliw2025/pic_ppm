@@ -1,12 +1,12 @@
 <div class="row mt-2">
     <div class="col-12">
         <div class="card">
-            <div data-toggle="modal" data-target="#exampleModalCenter" class="card-header">
-                <h4>PPM Summary</h4>
-                <p class="m-0">Computer</p>
-                <p class="m-0">All in one</p>
-                <p class="m-0">HP Core i7</p>
-
+            
+        <div data-toggle="modal" data-target="#exampleModalCenter" class="card-header">
+                <h4>Asset Details</h4>
+                <p class="m-0">{{$asset->equipment_category_name}}</p>
+                <p class="m-0">{{$asset->equipment_type}}</p>
+                <p class="m-0">{{$asset->manufacturer}} {{$asset->model}} </p>
             </div>
             
         </div>
@@ -17,47 +17,51 @@
         <div class="card">
             <div class="card-header">
                 <h4>Create PPM Scheudule</h4>
-
             </div>
             <div class="card-body">
-                <div class="row d-flex align-items-center">
-                    <div class="col-3">
-                        <label class="mt-1 form-label">Schedule Type</label>
-                        <select id="sch_type" name="" class="form-control">
-                            <option value="timely">Timely</option>
-                            <option value="metered">Metered</option>
-                        </select>
+                <form action="{{route('finalize-schedule')}}" method="POST">   
+                    @csrf
+                    <div class="row d-flex align-items-center">
+                        <div class="col-3">
+                            <label class="mt-1 form-label">Schedule Type</label>
+                            <select id="sch_type" name="schedule_type" class="form-control">
+                                
+                                @foreach($scheduleTypes as $st)
+                                    <option value="{{$st->id}}">{{$st->name}}</option>
+                                @endforeach
+
+                            </select>
+                        </div>
+
+                        <div id="ppm_type" class="col-3">
+                            <label class="mt-1 form-label">PPM Type</label>
+                            <select name="ppm_type" id="ppm_type" class="form-control">
+                                @foreach($ppmTypes as $pt)
+                                    <option value="{{$pt->id}}">{{$pt->ppm_type_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div id="num_itt" class="col-3">
+                            <label class="mt-1 form-label">Number of Itterations</label>
+                            <input name="no_of_itt" type="text" class="form-control">
+                        </div>
+
+                        <div id="meter" class="col-3">
+                            <label class="mt-1 form-label">Meter Value</label>
+                            <input name="meter_value" type="text" class="form-control">
+                        </div>
+                        <div id="unit" class="col-3">
+                            <label class="mt-1 form-label">Meter Unit</label>
+                            <input name="meter_unit" type="text" class="form-control">
+                        </div>
+                        <div id="fin_sc" class="mt-4 col-3">
+                            <button  class="btn btn-primary">Finalize Schedule</button>
+                        </div>
+
                     </div>
 
-                    <div id="ppm_type" class="col-3">
-                        <label class="mt-1 form-label">PPM Type</label>
-                        <select name="" id="" class="form-control">
-                            <option value="weekly">Weekly</option>
-                            <option value="Monthly">Monthly</option>
-                            <option selected value="Quarterly">Quarterly</option>
-                            <option value="Bi-Annually">Bi-Annually</option>
-                            <option value="Annually">Annually</option>
-                        </select>
-                    </div>
-
-                    <div id="num_itt" class="col-3">
-                        <label class="mt-1 form-label">Number of Itterations</label>
-                        <input type="text" class="form-control">
-                    </div>
-
-                    <div id="meter" class="col-3">
-                        <label class="mt-1 form-label">Meter Value</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div id="unit" class="col-3">
-                        <label class="mt-1 form-label">Meter Unit</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div id="fin_sc" class="mt-4 col-3">
-                        <button class="btn btn-primary">Finalize Schedule</button>
-                    </div>
-
-                </div>
+                </form>
             </div>
         </div>
     </div>

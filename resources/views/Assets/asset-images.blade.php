@@ -1,5 +1,18 @@
 <div class="">
 
+<div class="col-12">
+        <div class="card">
+            <div data-toggle="modal" data-target="#exampleModalCenter" class="card-header">
+                <h4>Asset Details</h4>
+                <p class="m-0">{{$asset->equipment_category_name}}</p>
+                <p class="m-0">{{$asset->equipment_type}}</p>
+                <p class="m-0">{{$asset->manufacturer}} {{$asset->model}} </p>
+
+            </div>
+            
+        </div>
+    </div>
+    
     <!-- <div class="col-6 mt-2">
         <div class="card">
             <div class="card-header">

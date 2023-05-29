@@ -24,6 +24,9 @@ class WorkOrderController extends Controller
     public function index()
     {
         //
+        $workOrders = WorkOrder::all();
+
+        return view("work-order.wo-list",compact('workOrders'));
         
     }
 

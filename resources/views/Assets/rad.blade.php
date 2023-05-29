@@ -1,4 +1,16 @@
 <div class="row">
+<div class="col-12">
+        <div class="card">
+            <div data-toggle="modal" data-target="#exampleModalCenter" class="card-header">
+                <h4>Asset Details</h4>
+                <p class="m-0">{{$asset->equipment_category_name}}</p>
+                <p class="m-0">{{$asset->equipment_type}}</p>
+                <p class="m-0">{{$asset->manufacturer}} {{$asset->model}} </p>
+
+            </div>
+            
+        </div>
+    </div>
     
         <div class="col-3">
             <label class="mt-1 form-label"> Machine IP</label>

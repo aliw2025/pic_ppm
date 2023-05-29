@@ -215,41 +215,24 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($workOrders as $wo)
                             <tr>
-                                <td>183</td>
-                                <td> <a style="color: black" href="{{route('add-work-order')}}">Printer Installation</a> </td>
+                                <td>{{$wo->id}}</td>
+                                <td> <a style="color: black" href="#">{{$wo->title}}</a> </td>
                                 <td style="font-size: 12px"> 
-                                    Printer<br>
-                                    Thermal | Gainsha tsc 240 pro
+                                    {{$wo->asset->equipment_category_name}}| {{$wo->asset->equipment_type}} <br>
+                                    {{$wo->asset->manufacturer}}| {{$wo->asset->model}} | {{$wo->asset->serial_number}}<br>
                                 </td>
-                                <td>PPM</td>
-                                <td>Printer Installation</td>
-                                <td>10-12-2023</td>
-                                <td>10-12-2023</td>
-                                <td>High</td>
-                                <td>in Progress</td>
-                                <td>Vendor</td>
-                                {{-- <td> <a href="#"></a> <i class="fas fa-file"></i></td> --}}
+                                <td>{{$wo->request_type->name}}</td>
+                                <td>{{$wo->category->service_category_name}}</td>
+                                <td>{{$wo->due_date}}</td>
+                                <td>{{$wo->completion_date}}</td>
+                                <td>{{$wo->priority->priority}}</td>
+                                <td>{{$wo->status->name}}</td>
+                                <td>{{$wo->assigned_to->name}}</td>
+                                
                             </tr>
-                            <tr>
-                                <td>183</td>
-                                <td>Printer Installation</td>
-                                <td style="font-size: 12px"> 
-                                    Printer<br>
-                                    Thermal | Gainsha tsc 240 pro
-                                </td>
-                                <td>PPM</td>
-                                <td>Printer Installation</td>
-                                <td>10-12-2023</td>
-                                <td>10-12-2023</td>
-                                <td>High</td>
-                                <td>in Progress</td>
-                                <td>Vendor</td>
-                            </tr>
-                           
-                           
-                            
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

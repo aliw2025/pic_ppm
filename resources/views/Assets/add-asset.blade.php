@@ -117,8 +117,9 @@
     });
 
     function check_type() {
-
-        if ($('#sch_type').val() == "timely") {
+            console.log($('#sch_type').val());
+            
+        if ($('#sch_type').val() == "1") {
             $('#ppm_type').show();
             $('#num_itt').show();
             $('#meter').hide();

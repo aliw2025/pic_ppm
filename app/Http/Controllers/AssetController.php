@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 use App\Models\TblEquipmentStatus;
 use App\Models\TblFloor;
 use App\Models\TblDepartment;
+use App\Models\TblPpmType;
+use App\Models\TblScheduleType;
 use App\Models\Vendor;
+use App\Models\User;    
 use Webmozart\Assert\Assert;
 use Storage;
 
@@ -28,6 +31,7 @@ class AssetController extends Controller
 
     public function assetsList()
     {
+
         $assets = Asset::all();
         return view('Assets.asset-list', compact('assets'));
 
@@ -35,6 +39,7 @@ class AssetController extends Controller
 
     public function getDeptAssets(Request $request){
 
+        
         $assets = Asset::where('asset_technical_category',$request->id)->get();
 
         return $assets;
@@ -53,7 +58,10 @@ class AssetController extends Controller
         $departments = TblDepartment::all();
         $blocks = TblBuildingBlock::all();
 
-        return view('Assets.add-asset', compact('eq_status', 'floors', 'departments', 'vendors', 'blocks','users'));
+        $ppmTypes = TblPpmType::all();
+        $scheduleTypes = TblScheduleType::all();
+
+        return view('Assets.add-asset', compact('eq_status', 'floors', 'departments', 'vendors', 'blocks','users','ppmTypes','scheduleTypes'));
     }
 
     /**
@@ -125,8 +133,10 @@ class AssetController extends Controller
         $departments = TblDepartment::all();
         $blocks = TblBuildingBlock::all();
         $asset = Asset::find($id);
+        $ppmTypes = TblPpmType::all();
+        $scheduleTypes = TblScheduleType::all();
         // $asset->ppm_type;
-        return view('Assets.add-asset', compact('asset', 'eq_status', 'floors', 'departments', 'vendors', 'blocks'));
+        return view('Assets.add-asset', compact('asset', 'eq_status', 'floors', 'departments', 'vendors', 'blocks','ppmTypes','scheduleTypes'));
     }
     /**
      * Display the specified resource.
@@ -149,6 +159,15 @@ class AssetController extends Controller
     public function edit(Asset $asset)
     {
         //
+
+    }
+
+    // this is not the way to finalize
+    public function finalizeSchedule(Request $request){
+
+        
+        dd($request->all());
+
     }
 
     /**
