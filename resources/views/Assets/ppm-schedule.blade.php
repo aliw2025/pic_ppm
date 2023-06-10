@@ -14,17 +14,20 @@
 </div>
 <div class="row">
     <div class="col-12">
+        @if(!isset($asset->schedule))
         <div class="card">
+            
             <div class="card-header">
                 <h4>Create PPM Scheudule</h4>
             </div>
             <div class="card-body">
                 <form action="{{route('finalize-schedule')}}" method="POST">   
                     @csrf
+                    <input type="hidden"  value="{{$asset->id}}" name="asset_id" id="">
                     <div class="row d-flex align-items-center">
                         <div class="col-3">
                             <label class="mt-1 form-label">Schedule Type</label>
-                            <select id="sch_type" name="schedule_type" class="form-control">
+                            <select id="sch_type" name="schedule_type_id" class="form-control">
                                 
                                 @foreach($scheduleTypes as $st)
                                     <option value="{{$st->id}}">{{$st->name}}</option>
@@ -35,7 +38,7 @@
 
                         <div id="ppm_type" class="col-3">
                             <label class="mt-1 form-label">PPM Type</label>
-                            <select name="ppm_type" id="ppm_type" class="form-control">
+                            <select name="ppm_type_id" id="ppm_type" class="form-control">
                                 @foreach($ppmTypes as $pt)
                                     <option value="{{$pt->id}}">{{$pt->ppm_type_name}}</option>
                                 @endforeach
@@ -44,7 +47,7 @@
 
                         <div id="num_itt" class="col-3">
                             <label class="mt-1 form-label">Number of Itterations</label>
-                            <input name="no_of_itt" type="text" class="form-control">
+                            <input name="num_of_itt" type="text" class="form-control">
                         </div>
 
                         <div id="meter" class="col-3">
@@ -64,6 +67,13 @@
                 </form>
             </div>
         </div>
+        @else
+            <div class="card">
+                <div class="card-body">
+                    <button class="btn btn-danger">Delete Scuedule</button>
+                </div>
+            </div>
+        @endif
     </div>
 </div>
 <div class="row mt-2">

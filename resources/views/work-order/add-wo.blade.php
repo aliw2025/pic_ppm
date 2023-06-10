@@ -37,7 +37,7 @@
                                             <select name="request_type_id" id="" class="form-control">
                                                 @If(isset($requestTypes))
                                                     @foreach($requestTypes as $rt)
-                                                    <option @if(isset($workOrder)) @if($workOrder->request_type==$rt->id) @endif @endif value="{{$rt->id}}">{{$rt->name}}</option>
+                                                    <option @if(isset($workOrder)) @if($workOrder->request_type_id==$rt->id) @endif @endif value="{{$rt->id}}">{{$rt->name}}</option>
                                                     @endforeach
                                                 @endif
 

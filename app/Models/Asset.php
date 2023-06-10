@@ -22,4 +22,9 @@ class Asset extends Model
         return $this->hasMany(TblAssetImages::class,'asset_id');
 
     }
+    public function schedule(){
+
+        return $this->hasOne(PpmSchedule::class,'asset_id');
+    }
+    
 }

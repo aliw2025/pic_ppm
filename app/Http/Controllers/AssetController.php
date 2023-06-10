@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asset;
 use App\Http\Controllers\Controller;
+use App\Models\PpmSchedule;
 use App\Models\TblAssetImages;
 use App\Models\TblBuildingBlock;
 use Illuminate\Http\Request;
@@ -166,7 +167,17 @@ class AssetController extends Controller
     public function finalizeSchedule(Request $request){
 
         
-        dd($request->all());
+        // dd($request->all());
+
+        $schedule = new PpmSchedule();
+        $schedule->asset_id = $request->asset_id;
+        $schedule->schedule_type_id = $request->schedule_type_id;
+        $schedule->ppm_type_id  = $request->ppm_type_id;
+        $schedule->num_of_itt = $request->num_of_itt;
+        $schedule->meter_value = $request->meter_value;
+        $schedule->meter_unit = $request->meter_unit;
+        $schedule->save();
+
 
     }
 

@@ -209,6 +209,7 @@
                                 <th>Priority</th>
                                 <th>Status</th>
                                 <th>Assigned To</th>
+                                <th>Action</th>
                                 
                                 {{-- <th>Detail</th> --}}
 
@@ -230,6 +231,8 @@
                                 <td>{{$wo->priority->priority}}</td>
                                 <td>{{$wo->status->name}}</td>
                                 <td>{{$wo->assigned_to->name}}</td>
+                                <td><a href="{{route('workOrder.show',$wo->id)}}">edit</a></td>
+
                                 
                             </tr>
                             @endforeach

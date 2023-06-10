@@ -120,12 +120,14 @@
             console.log($('#sch_type').val());
             
         if ($('#sch_type').val() == "1") {
+            console.log('dfdfdf');
             $('#ppm_type').show();
             $('#num_itt').show();
             $('#meter').hide();
             $('#unit').hide();
 
         } else {
+            console.log('dfdfd2');
             $('#ppm_type').hide();
             $('#num_itt').hide();
             $('#meter').show();
