@@ -178,6 +178,17 @@ class AssetController extends Controller
         $schedule->meter_unit = $request->meter_unit;
         $schedule->save();
 
+        
+        // $table->id();
+        // $table->unsignedBigInteger('asset_id')->nullable();
+        // $table->date('expected_date')->nullable();
+        // $table->date('planned_date')->nullable();
+        // $table->date('peformed_date')->nullable();
+        // $table->unsignedBigInteger('work_order_id')->nullable();        
+        // $table->timestamps();
+
+        return redirect()->route('asset.show',$request->asset_id);
+
 
     }
 

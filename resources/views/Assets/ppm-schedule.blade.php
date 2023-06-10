@@ -69,9 +69,11 @@
         </div>
         @else
             <div class="card">
-                <div class="card-body">
-                    <button class="btn btn-danger">Delete Scuedule</button>
-                </div>
+                <form action="">                
+                    <div class="card-body">
+                        <button class="btn btn-danger">Delete Scuedule</button>
+                    </div>
+                </form>
             </div>
         @endif
     </div>
