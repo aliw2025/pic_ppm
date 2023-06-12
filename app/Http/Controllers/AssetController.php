@@ -16,6 +16,7 @@ use App\Models\TblScheduleType;
 use App\Models\Vendor;
 use App\Models\User;    
 use Webmozart\Assert\Assert;
+use Carbon\Carbon;
 use Storage;
 
 class AssetController extends Controller
@@ -176,7 +177,60 @@ class AssetController extends Controller
         $schedule->num_of_itt = $request->num_of_itt;
         $schedule->meter_value = $request->meter_value;
         $schedule->meter_unit = $request->meter_unit;
-        $schedule->save();
+        // $schedule->save();
+
+        $factor =1;
+        // weekly 
+        if( $request->ppm_type_id ==1){
+            // 52
+            $factor = 52;
+        }
+        // monthly
+        else if($request->ppm_type_id ==2){
+            // 12
+            $factor = 12;
+        }
+        // quarterly
+        else if($request->ppm_type_id ==3){
+            // 4
+            $factor = 4;
+
+        }
+        // bi-annually
+        else if($request->ppm_type_id ==4){
+            // 2
+            $factor = 2;
+
+        }
+        // annually
+        else if($request->ppm_type_id ==5){
+            // 1
+            $factor = 1;
+
+        }
+
+        echo 'factor: '.$factor.'<br>';
+
+        $asset = Asset::find($request->asset_id);
+        $date= new Carbon($asset->installation_date);
+
+
+        for($i=1; $i<=$factor; $i++){
+
+            $mul = 12/$factor*$i;
+            //1+6 =7
+            //1+12 = 13d
+            $d = $date;
+            $d->addMonth($mul);
+            echo $d.'<br>';
+            
+
+        }
+
+        // dd($date);
+
+
+
 
         
         // $table->id();
@@ -187,7 +241,7 @@ class AssetController extends Controller
         // $table->unsignedBigInteger('work_order_id')->nullable();        
         // $table->timestamps();
 
-        return redirect()->route('asset.show',$request->asset_id);
+        // return redirect()->route('asset.show',$request->asset_id);
 
 
     }
