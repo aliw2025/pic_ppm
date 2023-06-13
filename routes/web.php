@@ -74,6 +74,9 @@ Route::controller(AssetController::class)->prefix('asset')->group( function () {
    Route::post('/delete-images', 'deleteImages')->name('delete-images');
    Route::get('/get-dept-assets', 'getDeptAssets')->name('get-dept-assets');
    Route::post('/finalize-schedule', 'finalizeSchedule')->name('finalize-schedule');
+   Route::post('/finalize-ppm', 'finalizePpm')->name('finalize-ppm');
+
+   
 
    
 

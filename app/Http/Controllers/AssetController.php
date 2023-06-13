@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asset;
 use App\Http\Controllers\Controller;
+use App\Models\AssetPpm;
 use App\Models\PpmSchedule;
 use App\Models\TblAssetImages;
 use App\Models\TblBuildingBlock;
@@ -14,7 +15,8 @@ use App\Models\TblDepartment;
 use App\Models\TblPpmType;
 use App\Models\TblScheduleType;
 use App\Models\Vendor;
-use App\Models\User;    
+use App\Models\User;
+use App\Models\WorkOrder;
 use Webmozart\Assert\Assert;
 use Carbon\Carbon;
 use Storage;
@@ -217,15 +219,26 @@ class AssetController extends Controller
 
         for($i=1; $i<=$factor; $i++){
 
-            $mul = 12/$factor*$i;
-            //1+6 =7
-            //1+12 = 13d
-            $d = $date;
-            $d->addMonth($mul);
-            echo $d.'<br>';
-            
+           
+            $d = new Carbon($asset->installation_date);
+            if($request->ppm_type_id != 1){
+                
+                $mul = 12/$factor*$i;
+                $d->addMonth($mul);
+
+            }else{
+
+                $mul = 7*$i;
+                $d->addDay($mul);
+            }
+            $scheduleEntry = new AssetPpm();
+            $scheduleEntry->asset_id = $request->asset_id;
+            $scheduleEntry->expected_date = $d;
+            $scheduleEntry->save();
 
         }
+
+
 
         // dd($date);
 
@@ -241,7 +254,7 @@ class AssetController extends Controller
         // $table->unsignedBigInteger('work_order_id')->nullable();        
         // $table->timestamps();
 
-        // return redirect()->route('asset.show',$request->asset_id);
+        return redirect()->route('asset.show',$request->asset_id);
 
 
     }
@@ -375,5 +388,30 @@ class AssetController extends Controller
     public function destroy(Asset $asset)
     {
         //
+    }
+
+    public function finalizePpm(Request $request){
+
+        // dd($request->all());
+        $asset= Asset::find($request->asset_id);
+        // dd($asset);
+        $workOrder = new WorkOrder();
+        $workOrder->request_type_id = 1;
+        $workOrder->department_id = $asset->department_id;
+        // $workOrder->category_id =
+        $workOrder->asset_id = $request->asset_id;
+        $workOrder->priority_id =1;
+        $workOrder->due_date = $request->planned_date;
+        $workOrder->status_id =1; 
+        $workOrder->title = "ppm";
+        $workOrder->description = $request->description;
+        $workOrder->save(); 
+
+        $ppm = AssetPpm::find($request->ppm_id);
+        $ppm->work_order_id = $workOrder->id;
+        $ppm->save();
+
+        return redirect()->route('workOrder.index');
+
     }
 }

@@ -225,12 +225,12 @@
                                     {{$wo->asset->manufacturer}}| {{$wo->asset->model}} | {{$wo->asset->serial_number}}<br>
                                 </td>
                                 <td>{{$wo->request_type->name}}</td>
-                                <td>{{$wo->category->service_category_name}}</td>
+                                <td>{{ isset($wo->category)?$wo->category->service_category_name:''}}</td>
                                 <td>{{$wo->due_date}}</td>
                                 <td>{{$wo->completion_date}}</td>
                                 <td>{{$wo->priority->priority}}</td>
                                 <td>{{$wo->status->name}}</td>
-                                <td>{{$wo->assigned_to->name}}</td>
+                                <td>{{isset($wo->assigned_to)?$wo->assigned_to->name:''}}</td>
                                 <td><a href="{{route('workOrder.show',$wo->id)}}">edit</a></td>
 
                                 

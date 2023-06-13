@@ -27,4 +27,10 @@ class Asset extends Model
         return $this->hasOne(PpmSchedule::class,'asset_id');
     }
     
+    public function scheduleEntries(){
+
+        
+        return $this->hasMany(AssetPpm::class,'asset_id');
+    }
+    
 }

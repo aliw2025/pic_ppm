@@ -75,6 +75,7 @@
                     </div>
                 </form>
             </div>
+
         @endif
     </div>
 </div>
@@ -100,62 +101,38 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>183</td>
-                            <td>12-Jan-23</td>
-                            {{-- <td>12-Jan-23</td> --}}
-                            <td><input type="date" class="form-control"></td>
-                            <td>12-Jan-23</td>
-                            <td>Planned</td>
-                            
-                            <td><a href="{{ route('add-work-order') }}">
-                                    <i style="color:black; font-size: 15px" class="fas fa-eye"></i>
-                                </a> </td>
-                                <td>
+                        @if(isset($asset->scheduleEntries))
+                            @foreach($asset->scheduleEntries as $entry)
+                            <form method="POST" action="{{route('finalize-ppm')}}" >
+                                @csrf
+                            <tr>
+                            <td>{{$entry->id}}</td>
+                            <td>{{$entry->expected_date}}</td>
+                            <td><input name="planned_date" type="date" class="form-control">
+                            <input type="hidden" name="asset_id" value="{{$asset->id}}">
+                            <input type="hidden" name="ppm_id" value="{{$entry->id}}">
+
+
+                        </td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="#">
+                                <i style="color:black; font-size: 15px" class="fas fa-eye"></i>
+                            </a> </td>
+                            <td>
+                                <!-- <a href="{{ route('finalize-ppm') }}">
                                     <i style="font-size: 15px" class="fas fa-save"></i>
-                                </td>
-                        </tr>
-                        <tr>
-                            <td>219</td>
-                            <td>12-Jan-23</td>
-                            <td><input type="date" class="form-control"></td>
-                            <td>12-Jan-23</td>
-                            <td>Completed</td>
-                            <td><a href="{{ route('add-work-order') }}">
-                                <i style="color:black; font-size: 15px" class="fas fa-eye"></i>
-                            </a> </td>
-                            <td>
-                                <i style="font-size: 15px" class="fas fa-save"></i>
+                                </a> -->
+                                <button type="submit" class="btn btn-primary">finalize</button>
                             </td>
-                           
+
+
                         </tr>
-                        <tr>
-                            <td>657</td>
-                            <td>12-Jan-23</td>
-                            <td><input type="date" class="form-control"></td>
-                            <td>12-Jan-23</td>
-                            <td>Planned</td>
-                            <td><a href="{{ route('add-work-order') }}">
-                                <i style="color:black; font-size: 15px" class="fas fa-eye"></i>
-                            </a> </td>
-                            <td>
-                                <i style="font-size: 15px" class="fas fa-save"></i>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>175</td>
-                            <td>12-Jan-23</td>
-                            <td><input type="date" class="form-control"></td>
-                            <td>12-Jan-23</td>
-                            <td>Completed</td>
-                            <td><a href="{{ route('add-work-order') }}">
-                                <i style="color:black; font-size: 15px" class="fas fa-eye"></i>
-                            </a> </td>
-                            <td>
-                                <i style="font-size: 15px" class="fas fa-save"></i>
-                            </td>
-                        </tr>
+                        </form>
+                            @endforeach
+                        @endif
+                       
+                       
 
                     </tbody>
                 </table>
