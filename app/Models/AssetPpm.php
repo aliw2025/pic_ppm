@@ -12,7 +12,7 @@ class AssetPpm extends Model
 
     public function workOrder(){
 
-        return $this->hasOne(WorkOrder::class,'work_order_id');
+        return $this->belongsTo(WorkOrder::class,'work_order_id');
     }
     
 }

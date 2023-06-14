@@ -38,13 +38,13 @@ class AssetController extends Controller
 
         $assets = Asset::all();
         return view('Assets.asset-list', compact('assets'));
-
     }
 
-    public function getDeptAssets(Request $request){
+    public function getDeptAssets(Request $request)
+    {
 
-        
-        $assets = Asset::where('asset_technical_category',$request->id)->get();
+
+        $assets = Asset::where('asset_technical_category', $request->id)->get();
 
         return $assets;
     }
@@ -56,7 +56,7 @@ class AssetController extends Controller
     public function create()
     {
         $users = User::all();
-        $vendors = Vendor::all();   
+        $vendors = Vendor::all();
         $floors = TblFloor::all();
         $eq_status = TblEquipmentStatus::all();
         $departments = TblDepartment::all();
@@ -65,7 +65,7 @@ class AssetController extends Controller
         $ppmTypes = TblPpmType::all();
         $scheduleTypes = TblScheduleType::all();
 
-        return view('Assets.add-asset', compact('eq_status', 'floors', 'departments', 'vendors', 'blocks','users','ppmTypes','scheduleTypes'));
+        return view('Assets.add-asset', compact('eq_status', 'floors', 'departments', 'vendors', 'blocks', 'users', 'ppmTypes', 'scheduleTypes'));
     }
 
     /**
@@ -140,7 +140,7 @@ class AssetController extends Controller
         $ppmTypes = TblPpmType::all();
         $scheduleTypes = TblScheduleType::all();
         // $asset->ppm_type;
-        return view('Assets.add-asset', compact('asset', 'eq_status', 'floors', 'departments', 'vendors', 'blocks','ppmTypes','scheduleTypes'));
+        return view('Assets.add-asset', compact('asset', 'eq_status', 'floors', 'departments', 'vendors', 'blocks', 'ppmTypes', 'scheduleTypes'));
     }
     /**
      * Display the specified resource.
@@ -167,11 +167,9 @@ class AssetController extends Controller
     }
 
     // this is not the way to finalize
-    public function finalizeSchedule(Request $request){
-
-        
-        // dd($request->all());
-
+    public function finalizeSchedule(Request $request)
+    {
+        // creating the schdeule type
         $schedule = new PpmSchedule();
         $schedule->asset_id = $request->asset_id;
         $schedule->schedule_type_id = $request->schedule_type_id;
@@ -179,84 +177,67 @@ class AssetController extends Controller
         $schedule->num_of_itt = $request->num_of_itt;
         $schedule->meter_value = $request->meter_value;
         $schedule->meter_unit = $request->meter_unit;
-        // $schedule->save();
-
-        $factor =1;
-        // weekly 
-        if( $request->ppm_type_id ==1){
-            // 52
-            $factor = 52;
-        }
-        // monthly
-        else if($request->ppm_type_id ==2){
-            // 12
-            $factor = 12;
-        }
-        // quarterly
-        else if($request->ppm_type_id ==3){
-            // 4
-            $factor = 4;
-
-        }
-        // bi-annually
-        else if($request->ppm_type_id ==4){
-            // 2
-            $factor = 2;
-
-        }
-        // annually
-        else if($request->ppm_type_id ==5){
-            // 1
-            $factor = 1;
-
-        }
-
-        echo 'factor: '.$factor.'<br>';
-
-        $asset = Asset::find($request->asset_id);
-        $date= new Carbon($asset->installation_date);
-
-
-        for($i=1; $i<=$factor; $i++){
-
-           
-            $d = new Carbon($asset->installation_date);
-            if($request->ppm_type_id != 1){
-                
-                $mul = 12/$factor*$i;
-                $d->addMonth($mul);
-
-            }else{
-
-                $mul = 7*$i;
-                $d->addDay($mul);
+        $schedule->save();
+        // creating the ppm entried
+        if ($request->schedule_type_id == 2) {
+            
+            for ($i = 1; $i <= $request->num_of_itt; $i++) {
+                $scheduleEntry = new AssetPpm();
+                $scheduleEntry->asset_id = $request->asset_id;
+                $scheduleEntry->save();
             }
-            $scheduleEntry = new AssetPpm();
-            $scheduleEntry->asset_id = $request->asset_id;
-            $scheduleEntry->expected_date = $d;
-            $scheduleEntry->save();
 
+        } else {
+
+            $factor = 1;
+            // weekly 
+            if ($request->ppm_type_id == 1) {
+                // 52
+                $factor = 52;
+            }
+            // monthly
+            else if ($request->ppm_type_id == 2) {
+                // 12
+                $factor = 12;
+            }
+            // quarterly
+            else if ($request->ppm_type_id == 3) {
+                // 4
+                $factor = 4;
+            }
+            // bi-annually
+            else if ($request->ppm_type_id == 4) {
+                // 2
+                $factor = 2;
+            }
+            // annually
+            else if ($request->ppm_type_id == 5) {
+                // 1
+                $factor = 1;
+            }
+            $asset = Asset::find($request->asset_id);
+
+            for ($i = 1; $i <= $factor * $request->num_of_itt; $i++) {
+
+
+                $d = new Carbon($asset->installation_date);
+                if ($request->ppm_type_id != 1) {
+
+                    $mul = 12 / $factor * $i;
+                    $d->addMonth($mul);
+                } else {
+
+                    $mul = 7 * $i;
+                    $d->addDay($mul);
+                }
+                $scheduleEntry = new AssetPpm();
+                $scheduleEntry->asset_id = $request->asset_id;
+                $scheduleEntry->expected_date = $d;
+                $scheduleEntry->save();
+            }
         }
 
-
-
-        // dd($date);
-
-
-
-
-        
-        // $table->id();
-        // $table->unsignedBigInteger('asset_id')->nullable();
-        // $table->date('expected_date')->nullable();
-        // $table->date('planned_date')->nullable();
-        // $table->date('peformed_date')->nullable();
-        // $table->unsignedBigInteger('work_order_id')->nullable();        
-        // $table->timestamps();
-
-        return redirect()->route('asset.show',$request->asset_id);
-
-
+        return redirect()->route('asset.show', $request->asset_id);
     }
 
     /**
@@ -321,8 +302,8 @@ class AssetController extends Controller
     {
 
         // dd($request->all());
-        $asset = Asset::where('id','=',$request->id)->with('assetImages')->get();;
-        
+        $asset = Asset::where('id', '=', $request->id)->with('assetImages')->get();;
+
         return $asset;
     }
 
@@ -361,17 +342,17 @@ class AssetController extends Controller
         //   }
         // if(Storage::exists($image->image_path)){
         //     Storage::delete($image->image_path);
-            
+
         // }else{
         //     dd('File does not exist.');
         // }
 
-       
+
         $image->delete();
         return redirect()->route('select-asset', $request->asset_id);
 
         // if (is_file($file)) {
-           
+
         //     // 2. possibility
         //     unlink(storage_path('app/folder/' . $file));
         // } else {
@@ -390,28 +371,28 @@ class AssetController extends Controller
         //
     }
 
-    public function finalizePpm(Request $request){
+    public function finalizePpm(Request $request)
+    {
 
         // dd($request->all());
-        $asset= Asset::find($request->asset_id);
+        $asset = Asset::find($request->asset_id);
         // dd($asset);
         $workOrder = new WorkOrder();
         $workOrder->request_type_id = 1;
         $workOrder->department_id = $asset->department_id;
         // $workOrder->category_id =
         $workOrder->asset_id = $request->asset_id;
-        $workOrder->priority_id =1;
+        $workOrder->priority_id = 1;
         $workOrder->due_date = $request->planned_date;
-        $workOrder->status_id =1; 
+        $workOrder->status_id = 1;
         $workOrder->title = "ppm";
         $workOrder->description = $request->description;
-        $workOrder->save(); 
+        $workOrder->save();
 
         $ppm = AssetPpm::find($request->ppm_id);
         $ppm->work_order_id = $workOrder->id;
         $ppm->save();
 
         return redirect()->route('workOrder.index');
-
     }
 }

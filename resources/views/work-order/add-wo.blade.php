@@ -86,7 +86,7 @@
                                     <div class="row">
                                         <div class="col-6 mt-1">
                                             <label for="">Due Date</label>
-                                            <input name="due_date" type="date" class="form-control">
+                                            <input @if(isset($workOrder)) value="{{$workOrder->due_date}}" @endif name="due_date" type="date" class="form-control">
                                         </div>
                                         <div class="col-6 mt-1">
                                             <label for="">Status</label>

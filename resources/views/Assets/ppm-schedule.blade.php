@@ -108,22 +108,23 @@
                             <tr>
                             <td>{{$entry->id}}</td>
                             <td>{{$entry->expected_date}}</td>
-                            <td><input name="planned_date" type="date" class="form-control">
+                            <td><input value="{{isset($entry->workOrder)?$entry->workOrder->due_date:''}}" name="planned_date" type="date" class="form-control" @if(isset($entry->workOrder)) disabled @endif>
                             <input type="hidden" name="asset_id" value="{{$asset->id}}">
                             <input type="hidden" name="ppm_id" value="{{$entry->id}}">
 
 
                         </td>
                             <td></td>
-                            <td></td>
-                            <td><a href="#">
+                            <td>{{isset($entry->workOrder)?$entry->workOrder->status->name:''}}</td>
+                            <td><a href="{{isset($entry->workOrder)?route('workOrder.show',$entry->work_order_id):'#'}}">
                                 <i style="color:black; font-size: 15px" class="fas fa-eye"></i>
                             </a> </td>
                             <td>
                                 <!-- <a href="{{ route('finalize-ppm') }}">
                                     <i style="font-size: 15px" class="fas fa-save"></i>
                                 </a> -->
-                                <button type="submit" class="btn btn-primary">finalize</button>
+                                
+                                <button @if(isset($entry->workOrder)) disabled @endif type="submit" class="btn btn-primary">finalize</button>
                             </td>
 
 
