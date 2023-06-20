@@ -40,6 +40,9 @@ class WorkOrder extends Model
         return $this->belongsTo(TblWoParty::class,'party_type_id');
     }
 
+    public function tasks(){
+        return $this->hasMany(WorkOrder::class,'parent_id');
+    }
 
 
 

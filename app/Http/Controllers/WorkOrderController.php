@@ -24,7 +24,7 @@ class WorkOrderController extends Controller
     public function index()
     {
         //
-        $workOrders = WorkOrder::all();
+        $workOrders = WorkOrder::where('parent_id',null)->get();
 
         return view("work-order.wo-list",compact('workOrders'));
         
@@ -145,7 +145,6 @@ class WorkOrderController extends Controller
         $workOrder->party_type_id = $request->party_type_id;
         $workOrder->vendor_id = $request->vendor_id;
         $workOrder->tech_id = $request->tech_id;
-        $workOrder->parent_id = $request->parent_id;
         $workOrder->title = $request->title;
         $workOrder->description = $request->description;
         $workOrder->title = $request->title;

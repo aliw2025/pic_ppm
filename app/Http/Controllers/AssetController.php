@@ -180,7 +180,7 @@ class AssetController extends Controller
         $schedule->save();
         // creating the ppm entried
         if ($request->schedule_type_id == 2) {
-            
+
             for ($i = 1; $i <= $request->num_of_itt; $i++) {
                 $scheduleEntry = new AssetPpm();
                 $scheduleEntry->asset_id = $request->asset_id;
@@ -236,7 +236,7 @@ class AssetController extends Controller
                 $scheduleEntry->save();
             }
         }
-
+        
         return redirect()->route('asset.show', $request->asset_id);
     }
 

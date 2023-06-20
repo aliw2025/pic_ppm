@@ -7,7 +7,7 @@
 
                 <div class="row  d-flex justify-content-between">
                     <div class="col-3">
-                        <h4> Work Order </h4>
+                        <h4> {{isset($workOrder)? isset($workOrder->parent_id)?'Task':'WorkOrder' : 'Work Order'}}  </h4>
                     </div>
                     <div class="col-3 d-flex justify-content-end">
                         <a href="#">
@@ -27,7 +27,7 @@
 
                                 @if(isset($workOrder))
 
-                                @method('put');
+                                @method('put')
 
                                 @endif
                                 <div class="card-body">
@@ -179,10 +179,11 @@
                         <li class="nav-item">
                             <a class="nav-link active" id="custom-tabs-two-res-tab" data-toggle="pill" href="#custom-tabs-two-res" role="tab" aria-controls="custom-tabs-two-res" aria-selected="false">Resolution</a>
                         </li>
-
+                        @if(!isset($workOrder->parent_id))
                         <li class="nav-item">
                             <a class="nav-link " id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="false">Sub Tasks</a>
                         </li>
+                        @endif
 
                         <li class="nav-item">
                             <a class="nav-link" id="custom-tabs-two-ppm-tab" data-toggle="pill" href="#custom-tabs-two-ppm" role="tab" aria-controls="custom-tabs-two-ppm" aria-selected="false">Event History</a>
@@ -191,13 +192,15 @@
                     </ul>
                 </div>
                 <div class="card-body">
-                    <div class="tab-content " id="custom-tabs-two-tabContent">
+                    <div class="tab-content" id="custom-tabs-two-tabContent">
                         <div class="tab-pane fade active show" id="custom-tabs-two-res" role="tabpanel" aria-labelledby="custom-tabs-two-res-tab">
                             @include('work-order.resolution')
                         </div>
+                        @if(!isset($workOrder->parent_id))
                         <div class="tab-pane fade" id="custom-tabs-two-home" role="tabpanel" aria-labelledby="custom-tabs-two-home-tab">
                             @include('work-order.tasks')
                         </div>
+                        @endif
                         <div class="tab-pane fade" id="custom-tabs-two-ppm" role="tabpanel" aria-labelledby="custom-tabs-two-ppm-tab">
                             @include('work-order.history')
                         </div>

@@ -45,10 +45,7 @@
                             </select>
                         </div>
 
-                        <div id="num_itt" class="col-3">
-                            <label class="mt-1 form-label">Number of Itterations</label>
-                            <input name="num_of_itt" type="text" class="form-control">
-                        </div>
+                     
 
                         <div id="meter" class="col-3">
                             <label class="mt-1 form-label">Meter Value</label>
@@ -57,6 +54,10 @@
                         <div id="unit" class="col-3">
                             <label class="mt-1 form-label">Meter Unit</label>
                             <input name="meter_unit" type="text" class="form-control">
+                        </div>
+                        <div id="num_itt" class="col-3">
+                            <label class="mt-1 form-label">Number of Itterations</label>
+                            <input name="num_of_itt" type="text" class="form-control">
                         </div>
                         <div id="fin_sc" class="mt-4 col-3">
                             <button  class="btn btn-primary">Finalize Schedule</button>

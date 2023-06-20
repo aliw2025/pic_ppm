@@ -39,12 +39,17 @@
         );
         // Summernote12
         $('#summernote2').summernote({
-                height: 150
+                height: 150 
             }
 
         );
          // Summernote12
          $('#summernote3').summernote({
+                height: 150
+            }
+
+        );
+        $('#summernote4').summernote({
                 height: 150
             }
 

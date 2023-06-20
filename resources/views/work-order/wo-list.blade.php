@@ -221,8 +221,10 @@
                                 <td>{{$wo->id}}</td>
                                 <td> <a style="color: black" href="#">{{$wo->title}}</a> </td>
                                 <td style="font-size: 12px"> 
+                                    @if(isset($wo->asset))
                                     {{$wo->asset->equipment_category_name}}| {{$wo->asset->equipment_type}} <br>
                                     {{$wo->asset->manufacturer}}| {{$wo->asset->model}} | {{$wo->asset->serial_number}}<br>
+                                    @endif
                                 </td>
                                 <td>{{$wo->request_type->name}}</td>
                                 <td>{{ isset($wo->category)?$wo->category->service_category_name:''}}</td>
