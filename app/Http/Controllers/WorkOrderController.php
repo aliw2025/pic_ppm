@@ -12,6 +12,7 @@ use App\Models\TblWorkOrderStatus;
 use App\Models\User;
 use App\Models\Vendor;
 use App\Models\WorkOrder;
+use App\Models\WorkOrderResolution;
 use Illuminate\Http\Request;
 
 class WorkOrderController extends Controller
@@ -158,6 +159,21 @@ class WorkOrderController extends Controller
         // $party_type = TblWoParty::all();        
         return redirect()->route('workOrder.show',$workOrder);
     }
+
+
+    public function addResolution(Request $request){
+
+        $resolution = new WorkOrderResolution();
+        $resolution->resolution = $request->resolution;
+        $resolution->work_order_id = $request->work_order_id;
+        $resolution->save();
+        
+        
+        return redirect()->route('workOrder.show',$request->work_order_id);
+        
+
+    }
+
 
     /**
      * Remove the specified resource from storage.

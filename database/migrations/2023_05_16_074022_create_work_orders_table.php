@@ -32,6 +32,7 @@ class CreateWorkOrdersTable extends Migration
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->longText('resolution')->nullable();
+            
 
 
 

@@ -43,6 +43,12 @@ class WorkOrder extends Model
     public function tasks(){
         return $this->hasMany(WorkOrder::class,'parent_id');
     }
+    
+    public function resolutions(){
+
+        return $this->hasMany(WorkOrderResolution::class,'work_order_id');
+
+    }
 
 
 

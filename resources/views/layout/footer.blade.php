@@ -54,6 +54,12 @@
             }
 
         );
+        $('.summernotes').summernote({
+                height: 150
+            }
+
+        );
+       
 
     })
 </script>

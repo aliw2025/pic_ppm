@@ -77,10 +77,11 @@ Route::controller(AssetController::class)->prefix('asset')->group( function () {
    Route::post('/finalize-ppm', 'finalizePpm')->name('finalize-ppm');
 
    
+});
 
-   
+Route::controller(WorkOrderController::class)->group(function(){
 
-  
+      Route::post('/add-resolution','addResolution')->name('add-resolution');
 });
 
 
