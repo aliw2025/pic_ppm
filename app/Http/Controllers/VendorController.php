@@ -31,7 +31,6 @@ class VendorController extends Controller
         $contact_persons = VendorContactPerson::where('vendor','=',$request->id)->get();
        
         if(isset($request->id)){
-
             $asset_vendor = Vendor::find($request->id);
             return view('vendors.add-vendor',compact('asset_vendor','contact_persons'));
         }
@@ -47,9 +46,17 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'vendor_name'=>'required',
+        ]);
         $asset_vendor  = new Vendor();
         $asset_vendor->vendor_name  = $request->vendor_name;
+        $asset_vendor->business_name  = $request->business_name;
+        $asset_vendor->address  = $request->address;
         $asset_vendor->save();
+
+        return redirect()->route('vendors.show',$asset_vendor->id);
+
         $contact_persons = VendorContactPerson::where('vendor','=',$asset_vendor->id)->get();
         return view('vendors.add-vendor',compact('asset_vendor','contact_persons'));
         
@@ -62,15 +69,7 @@ class VendorController extends Controller
     }
      public function storeContactPerson(Request $request)
     {
-        // dd($request->all());
-        // dd("dfdfd");
-        // $table->unsignedBigInteger('vendor')->nullable();
-        // $table->unsignedBigInteger('person_type')->nullable();
-        // $table->string('designation')->nullable();
-        // $table->string('email')->nullable();
-        // $table->string('landline')->nullable();
-        // $table->string('mobile')->nullable();
-
+        
         $person = new VendorContactPerson();
         $person->name = $request->name;
         $person->person_type = $request->person_type;
@@ -92,8 +91,10 @@ class VendorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Vendor $vendor)
-    {
-        //
+    {    
+        $asset_vendor = $vendor;
+        $contact_persons = VendorContactPerson::where('vendor','=',$asset_vendor->id)->get();
+        return view('vendors.add-vendor',compact('asset_vendor','contact_persons'));
     }
 
     /**
@@ -104,7 +105,7 @@ class VendorController extends Controller
      */
     public function edit(Vendor $vendor)
     {
-        //
+        
     }
 
     /**

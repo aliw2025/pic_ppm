@@ -4,7 +4,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Assets</h4>
+                    <div class="d-flex justify-content-between">
+                        <h4>Assets</h4>
+                        <a href="{{route('asset.create')}}" class="btn btn-primary">Add Asset</a>
+
+                    </div>  
                 </div>
                 <div class="card-body">
                     <table class="table table-head-fixed text-nowrap">
@@ -67,32 +71,14 @@
                     <div class="card">
                         <div class="card-body ">
                             <div class="row d-flex justify-content-center">
-                                {{-- src="resources/img/printer.webp" --}}
-                                {{-- <div class="col-3">
-                                    </div> --}}
-                                {{-- style="height: 250px"
-                                style="height: 250px"
-                                style="height: 250px" --}}
-                                {{-- style="height: 250px;"
-                                style="height: 250px;"
-                                style="height: 250px;" --}}
+                                
                                 <div class="col-5">
                                     <div  id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                         <ol class="carousel-indicators">
-                                            <!-- <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
+                                            
                                         </ol>
                                         <div style="height: 250px; width:250px" class="carousel-inner">
-                                            <!-- <div class="carousel-item active">
-                                                <img class="d-block w-100" src="resources/img/printer.webp" alt="First slide">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" src="resources/img/printer.webp" alt="First slide">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" src="resources/img/printer.webp" alt="First slide">
-                                            </div> -->
+                                           
                                         </div>
                                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                                             data-slide="prev">
@@ -323,10 +309,7 @@
 
                 
                 
-                
-
-
-               
+                           
                
                 var indicators = $('.carousel-indicators');
                 var images = $('.carousel-inner');

@@ -58,12 +58,7 @@
                                 <p>Vendors</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('vendors.create') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add Vendor</p>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </li>
                  <li class="nav-item ">
@@ -74,12 +69,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('asset.create') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add Asset</p>
-                            </a>
-                        </li>
+                      
                         <li class="nav-item">
                             <a href="{{route('assets-list')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

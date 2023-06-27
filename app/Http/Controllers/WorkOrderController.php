@@ -27,9 +27,8 @@ class WorkOrderController extends Controller
      */
     public function index()
     {
-        //
+    
         $workOrders = WorkOrder::where('parent_id',null)->get();
-
         return view("work-order.wo-list",compact('workOrders'));
         
     }
@@ -62,8 +61,7 @@ class WorkOrderController extends Controller
     public function store(Request $request)
     {
         
-        // dd($request->all());
-
+    
         $workOrder = new WorkOrder();
         $workOrder->request_type_id = $request->request_type_id;
         $workOrder->department_id = $request->department_id;
@@ -93,22 +91,12 @@ class WorkOrderController extends Controller
             $event->description = "created Work Order";
             $event->work_order_id = $workOrder->id;
 
-
         }
+
         $event->user_id = Auth::id();
         $event->save();
-
         return redirect()->route('workOrder.show',$workOrder);
 
-        // $requestTypes = TblRequestType::all();
-        // $departments = TblDepartment::all();
-        // $woStatuses = TblWorkOrderStatus::all();
-        // $priorities = TblPriority::all();
-        // $party_type = TblWoParty::all(); 
-        // $vendors = Vendor::all();     
-        // $users = User::all(); 
-
-        // return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type','workOrder'));
     }
 
     /**
@@ -127,9 +115,7 @@ class WorkOrderController extends Controller
         $vendors = Vendor::all();     
         $users = User::all();       
         $cats = TblServiceCategory::where('department_id',$workOrder->department_id)->get();
-        $assets = Asset::where('asset_technical_category',$workOrder->department_id)->get();
-
-       
+        $assets = Asset::where('asset_technical_category',$workOrder->department_id)->get();       
         return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type','workOrder','vendors','users','cats','assets'));
     }
 
@@ -183,12 +169,7 @@ class WorkOrderController extends Controller
         $event->work_order_id = $workOrder->id;
         $event->user_id = Auth::id();
         $event->save();
-
-        // $requestTypes = TblRequestType::all();
-        // $departments = TblDepartment::all();
-        // $woStatuses = TblWorkOrderStatus::all();
-        // $priorities = TblPriority::all();
-        // $party_type = TblWoParty::all();        
+  
         return redirect()->route('workOrder.show',$workOrder);
     }
 
@@ -206,11 +187,8 @@ class WorkOrderController extends Controller
         $event->user_id = Auth::id();
         
         $event->save();
-        
-        
         return redirect()->route('workOrder.show',$request->work_order_id);
         
-
     }
 
 

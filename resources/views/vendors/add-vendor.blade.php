@@ -23,7 +23,24 @@
                                         <label class="mt-1 form-label">Name</label>
                                         <input name="vendor_name"
                                             @if (isset($asset_vendor)) value="{{ $asset_vendor->vendor_name }}" @endif
-                                            placeholder="Name" type="text" class="form-control">
+                                            placeholder="Name" type="text" class="@error('vendor_name') is-invalid @enderror form-control">
+                                            @error('vendor_name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                    </div>
+                                    <div class="col-3">
+                                        @csrf
+                                        <label class="mt-1 form-label">Business Name</label>
+                                        <input name="business_name"
+                                            @if (isset($asset_vendor)) value="{{ $asset_vendor->vendor_name }}" @endif
+                                            placeholder="Business Name" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-3">
+                                        @csrf
+                                        <label class="mt-1 form-label">Address</label>
+                                        <input name="address"
+                                            @if (isset($asset_vendor)) value="{{ $asset_vendor->address }}" @endif
+                                            placeholder="Address" type="text" class="form-control">
                                     </div>
                                 </div>
 
@@ -114,12 +131,12 @@
                                     </thead>
                                     <tbody>
                                         @php
-                                            $count = 1;    
+                                            $count = 1;
                                         @endphp
                                         @if (isset($contact_persons))
                                             @foreach ($contact_persons as $person)
                                                 <tr>
-                                                    <td>{{$count}}</td>
+                                                    <td>{{ $count }}</td>
                                                     <td>{{ $person->name }}</td>
                                                     <td>{{ $person->person_type }}</td>
                                                     <td>{{ $person->designation }}</td>
@@ -128,7 +145,7 @@
                                                     <td>{{ $person->mobile }}</td>
                                                 </tr>
                                                 @php
-                                                    $count+=1;    
+                                                    $count += 1;
                                                 @endphp
                                             @endforeach
                                         @endif

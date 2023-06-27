@@ -15,7 +15,6 @@ class RequestTypeSeed extends Seeder
     public function run()
     {
         //
-
         $rt = new TblRequestType();
         $rt->name= "PM";
         $rt->save();

@@ -76,10 +76,7 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'file_name' => 'required'
-        // ]);
-        //
+        
         $asset = new Asset();
         $asset->asset_technical_category = $request->asset_tech_cat;
         $asset->equipment_category_name = $request->equipment_category_name;
@@ -123,7 +120,6 @@ class AssetController extends Controller
         $eq_status = TblEquipmentStatus::all();
         $departments = TblDepartment::all();
         $blocks = TblBuildingBlock::all();
-        // $asset->ppm_type;
         return view('Assets.add-asset', compact('asset', 'eq_status', 'floors', 'departments', 'vendors', 'blocks'));
     }
 
@@ -351,13 +347,6 @@ class AssetController extends Controller
         $image->delete();
         return redirect()->route('select-asset', $request->asset_id);
 
-        // if (is_file($file)) {
-
-        //     // 2. possibility
-        //     unlink(storage_path('app/folder/' . $file));
-        // } else {
-        //     echo "File does not exist";
-        // }
     }
 
     /**
@@ -374,13 +363,10 @@ class AssetController extends Controller
     public function finalizePpm(Request $request)
     {
 
-        // dd($request->all());
         $asset = Asset::find($request->asset_id);
-        // dd($asset);
         $workOrder = new WorkOrder();
         $workOrder->request_type_id = 1;
         $workOrder->department_id = $asset->department_id;
-        // $workOrder->category_id =
         $workOrder->asset_id = $request->asset_id;
         $workOrder->priority_id = 1;
         $workOrder->due_date = $request->planned_date;

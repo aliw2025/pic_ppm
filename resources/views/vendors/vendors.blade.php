@@ -5,7 +5,10 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4>Vendors</h4>
+                <div class="d-flex justify-content-between">
+                    <h4>Vendors</h4>
+                    <a href="{{route('vendors.create')}}" class="btn btn-primary">Add Vendor</a>
+                </div>
             </div>
             <div class="card-body">
               <table class="table table-head-fixed text-nowrap">
