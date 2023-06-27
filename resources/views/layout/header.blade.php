@@ -43,7 +43,10 @@
 
         @include('layout.top-nav')
 
+        @auth
         @include('layout.sidebar')
+
+        @endauth
         <div class="content-wrapper">
             <!-- Content Wrapper. Contains page content -->
             <div class="content">

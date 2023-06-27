@@ -49,6 +49,11 @@ class WorkOrder extends Model
         return $this->hasMany(WorkOrderResolution::class,'work_order_id');
 
     }
+    public function Events(){
+
+        return $this->hasMany(WorkOrderEvent::class,'work_order_id');
+
+    }
 
 
 

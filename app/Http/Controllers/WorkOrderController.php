@@ -12,8 +12,11 @@ use App\Models\TblWorkOrderStatus;
 use App\Models\User;
 use App\Models\Vendor;
 use App\Models\WorkOrder;
+use App\Models\WorkOrderEvent;
+use App\Models\WorkOrderEvents;
 use App\Models\WorkOrderResolution;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WorkOrderController extends Controller
 {
@@ -80,6 +83,21 @@ class WorkOrderController extends Controller
         $workOrder->title = $request->title;
         $workOrder->save(); 
 
+        $event = new WorkOrderEvent();
+        if(isset($request->parent_id) ){
+            $event->description = "created Task";
+            $event->work_order_id = $workOrder->parent_id;
+
+
+        }else{
+            $event->description = "created Work Order";
+            $event->work_order_id = $workOrder->id;
+
+
+        }
+        $event->user_id = Auth::id();
+        $event->save();
+
         return redirect()->route('workOrder.show',$workOrder);
 
         // $requestTypes = TblRequestType::all();
@@ -104,12 +122,14 @@ class WorkOrderController extends Controller
         $requestTypes = TblRequestType::all();
         $departments = TblDepartment::all();
         $woStatuses = TblWorkOrderStatus::all();
-        $priorities = TblPriority::all();
+        $priorities = TblPriority::all();   
         $party_type = TblWoParty::all();  
         $vendors = Vendor::all();     
         $users = User::all();       
         $cats = TblServiceCategory::where('department_id',$workOrder->department_id)->get();
         $assets = Asset::where('asset_technical_category',$workOrder->department_id)->get();
+
+       
         return view('work-order.add-wo',compact('requestTypes','departments','woStatuses','priorities','party_type','workOrder','vendors','users','cats','assets'));
     }
 
@@ -142,6 +162,7 @@ class WorkOrderController extends Controller
         $workOrder->due_date = $request->due_date;
         $workOrder->completion_date = $request->completion_date;
         $workOrder->resolution_date = $request->resolution_date;
+        $tempStatus = $workOrder->status_id;
         $workOrder->status_id = $request->status_id;
         $workOrder->party_type_id = $request->party_type_id;
         $workOrder->vendor_id = $request->vendor_id;
@@ -151,6 +172,17 @@ class WorkOrderController extends Controller
         $workOrder->title = $request->title;
         $workOrder->save(); 
 
+        $event = new WorkOrderEvent();
+        $event->description = "updated";
+
+        if($tempStatus!=$workOrder->status_id){
+
+            $event->description = "updated status";
+
+        }
+        $event->work_order_id = $workOrder->id;
+        $event->user_id = Auth::id();
+        $event->save();
 
         // $requestTypes = TblRequestType::all();
         // $departments = TblDepartment::all();
@@ -166,7 +198,14 @@ class WorkOrderController extends Controller
         $resolution = new WorkOrderResolution();
         $resolution->resolution = $request->resolution;
         $resolution->work_order_id = $request->work_order_id;
+        $resolution->user_id = Auth::id();
         $resolution->save();
+        $event = new WorkOrderEvent();
+        $event->description = "Added Resolution";
+        $event->work_order_id =  $resolution->work_order_id ;
+        $event->user_id = Auth::id();
+        
+        $event->save();
         
         
         return redirect()->route('workOrder.show',$request->work_order_id);

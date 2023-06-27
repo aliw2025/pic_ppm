@@ -29,7 +29,7 @@ Route::group(['prefix'=>'department'], function(){
 });
 
 
-Route::get('/', function () {
+Route::middleware('auth')->get('/', function () {
    return view('layout.main');
 })->name('index');
 Route::get('/admin-panel', [\App\Http\Controllers\Controller::class,'adminPanel'])->name('admin-panel');
