@@ -149,6 +149,15 @@ class WorkOrderController extends Controller
         $workOrder->completion_date = $request->completion_date;
         $workOrder->resolution_date = $request->resolution_date;
         $tempStatus = $workOrder->status_id;
+        if($request->status_id==7){
+
+            if(isset($workOrder->tasks)){
+                $tasks = $workOrder->tasks->where('statu_id','!=',7);
+                if(count($tasks)!=0){
+                    return "please mark pending task close first";
+                }
+            }
+        }
         $workOrder->status_id = $request->status_id;
         $workOrder->party_type_id = $request->party_type_id;
         $workOrder->vendor_id = $request->vendor_id;
@@ -162,15 +171,15 @@ class WorkOrderController extends Controller
         $event->description = "updated";
 
         if($tempStatus!=$workOrder->status_id){
-
+            
             $event->description = "updated status";
-
         }
+
         $event->work_order_id = $workOrder->id;
         $event->user_id = Auth::id();
         $event->save();
-  
         return redirect()->route('workOrder.show',$workOrder);
+        
     }
 
 
