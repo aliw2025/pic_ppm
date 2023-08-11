@@ -4,7 +4,7 @@
      <a href="index3.html" class="brand-link">
          <img src="{{ url('/resources/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3" style="opacity: .8">
-         <span class="brand-text font-weight-light">PPM</span>
+         <span class="brand-text font-weight-light">WorkMaster</span>
      </a>
      <!-- Sidebar -->
      <div class="sidebar">
@@ -18,7 +18,7 @@
                  <a href="{{route('admin-panel')}}"  class="d-block">Admin</a>
              </div>
          </div>
-         
+
          <!-- SidebarSearch Form -->
          <div class="form-inline">
              <div class="input-group" data-widget="sidebar-search">
@@ -58,7 +58,7 @@
                                 <p>Vendors</p>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </li>
                  <li class="nav-item ">
@@ -69,7 +69,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                      
+
                         <li class="nav-item">
                             <a href="{{route('assets-list')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -79,7 +79,7 @@
 
                     </ul>
                 </li>
-                
+
                  <li class="nav-item ">
                     <a href="#" class="nav-link">
                         <p>
@@ -106,7 +106,7 @@
                     <a  class="nav-link">
                         <p>
                             Service Category
-                            
+
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -117,7 +117,7 @@
                                 <p>Deparment Wise</p>
                             </a>
                         </li>
-                    
+
                     </ul>
                 </li>
                 <li class="nav-item ">

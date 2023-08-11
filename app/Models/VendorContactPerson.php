@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class VendorContactPerson extends Model
 {
     use HasFactory;
+
+    public function presontype()
+    {
+        return $this->belongsTo(TblVendorPersonType::class,'person_type','id');
+    }
 }

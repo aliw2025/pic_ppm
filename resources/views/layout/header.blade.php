@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Periodic Preventive Maintainence</title>
+    <title>Work Master</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{url('/resources/css/adminlte.min.css')}}">
     {{-- for rich text feild --}}
     <link rel="stylesheet" href="{{url('resources/plugins/summernote/summernote-bs4.min.css')}}">
-    
+
     <script src="{{url('resources/plugins/jquery/jquery.min.js')}}"></script>
 
     <!-- IonIcons -->
@@ -23,7 +23,7 @@
     {{-- <script  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> --}}
     {{-- <script src="{{url('resources/plugins/jquery/jquery.min.js')}}"></script> --}}
-    
+
 
     {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> --}}
 
@@ -34,7 +34,7 @@
   Apply one or more of the following classes to to the body tag
   to get the desired effect
 
-  * sidebar-collapse    
+  * sidebar-collapse
   * sidebar-mini
 -->
 
@@ -54,7 +54,7 @@
                     @yield('section')
                 </div>
             </div>
-           
+
             <!-- /.content-wrapper -->
         </div>
         <!-- Control Sidebar -->

@@ -27,15 +27,15 @@ class VendorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    {   
+    {
         $contact_persons = VendorContactPerson::where('vendor','=',$request->id)->get();
-       
+
         if(isset($request->id)){
             $asset_vendor = Vendor::find($request->id);
             return view('vendors.add-vendor',compact('asset_vendor','contact_persons'));
         }
-        
-        return view('vendors.add-vendor',compact('contact_persons'));   
+
+        return view('vendors.add-vendor',compact('contact_persons'));
     }
 
     /**
@@ -54,22 +54,21 @@ class VendorController extends Controller
         $asset_vendor->business_name  = $request->business_name;
         $asset_vendor->address  = $request->address;
         $asset_vendor->save();
-
         return redirect()->route('vendors.show',$asset_vendor->id);
 
         $contact_persons = VendorContactPerson::where('vendor','=',$asset_vendor->id)->get();
         return view('vendors.add-vendor',compact('asset_vendor','contact_persons'));
-        
+
     }
 
     public function vendorsList(){
 
-        $vendors = Vendor::all();
+        $vendors = Vendor::with('vendorperson')->get();
         return view('vendors.vendors',compact('vendors'));
     }
      public function storeContactPerson(Request $request)
     {
-        
+
         $person = new VendorContactPerson();
         $person->name = $request->name;
         $person->person_type = $request->person_type;
@@ -91,7 +90,7 @@ class VendorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Vendor $vendor)
-    {    
+    {
         $asset_vendor = $vendor;
         $contact_persons = VendorContactPerson::where('vendor','=',$asset_vendor->id)->get();
         return view('vendors.add-vendor',compact('asset_vendor','contact_persons'));
@@ -105,7 +104,7 @@ class VendorController extends Controller
      */
     public function edit(Vendor $vendor)
     {
-        
+
     }
 
     /**
