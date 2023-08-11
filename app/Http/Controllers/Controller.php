@@ -8,6 +8,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
+use App\Models\TblDepartment;
 
 class Controller extends BaseController
 {
@@ -76,7 +77,9 @@ class Controller extends BaseController
     }
 
     public function defineSla(Request $request){
-        return view('admin.define-sla');
+
+        $departments = TblDepartment::all();
+        return view('admin.define-sla',compact('departments'));
     } 
     
     public function calender(Request $request){

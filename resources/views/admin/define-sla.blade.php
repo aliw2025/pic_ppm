@@ -11,37 +11,35 @@
                     <div class="col-3">
                         <label for="">Select Department</label>
                         <select name="" id="" class="form-control">
-                            <option value="">ICT</option>
-                            <option value="BME">BME</option>
+                            @foreach ($departments as $dept)
+                                <option value="{{$dept->id}}">{{$dept->name}}</option>
+                            @endforeach
                         </select>
                     </div>
 
                 </div>
-                {{-- <div class="row mt-2">
-                    <div class="col-3">
-                        <label for="">Request Type</label>
-                        <select name="" id="" class="form-control">
-                            <option value="">PPM</option>
-                            <option value="BME">Incedent</option>
-                        </select>
-                    </div>
-                </div> --}}
+
                 <div class="row mt-2">
                     <div class="col-3">
                         <label for="">Service Category</label>
                         <select name="" id="" class="form-control">
-                            <option value="">Server Installtion</option>
-                            <option value="BME">PC Configuratoin</option>
+                           
                         </select>
                     </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-3">
-                        <label for="">Event</label>
+                        <label for="">Status</label>
                         <select name="" id="" class="form-control">
-                            <option value="">open</option>
-                            <option value="BME">In progress</option>
-                            <option value="BME">Completed</option>
+                           
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <label for="">Priority</label>
+                        <select name="" id="" class="form-control">
+                           
                         </select>
                     </div>
                 </div>
